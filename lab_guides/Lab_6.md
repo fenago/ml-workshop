@@ -1,11 +1,11 @@
 
-6. Building Your Own Program {#_idParaDest-153}
+6. Building Your Own Program
 ============================
 
-::: {#_idContainer101 .Content}
+
 :::
 
-::: {#_idContainer109 .Content}
+
 Overview
 
 In this chapter, we will present all the steps required to solve a
@@ -17,10 +17,10 @@ chapter, you will be able to create an interactive version of your
 program so that anyone can use it effectively.
 
 
-Introduction {#_idParaDest-154}
+Introduction
 ============
 
-::: {#_idContainer109 .Content}
+
 In the previous chapters, we covered the main concepts of machine
 learning, beginning with the distinction between the two main learning
 approaches (supervised and unsupervised learning), and then moved on to
@@ -42,10 +42,10 @@ company or for research purposes, as it allows all members of the team
 to use the model without needing a full understanding of it.
 
 
-Program Definition {#_idParaDest-155}
+Program Definition
 ==================
 
-::: {#_idContainer109 .Content}
+
 The following section will cover the key stages required to construct a
 comprehensive machine learning program that allows easy access to the
 trained model so that we can perform predictions for all future data.
@@ -53,9 +53,9 @@ These stages will be applied to the construction of a program that
 allows a bank to determine the promotional strategy for a financial
 product in its marketing campaign.
 
-[]{#_idTextAnchor161}
 
-Building a Program -- Key Stages {#_idParaDest-156}
+
+Building a Program -- Key Stages
 --------------------------------
 
 At this point, you should be able to pre-process a dataset, build
@@ -71,9 +71,9 @@ The processes that we just discussed are divided into three main stages
 and will be explained in the following sections. These stages represent
 the foremost requirements of any machine learning project.
 
-[]{#_idTextAnchor162}
 
-### Preparation {#_idParaDest-157}
+
+### Preparation
 
 Preparation consists of all the procedures that we have developed thus
 far, with the objective of outlining the project in alignment with the
@@ -102,9 +102,9 @@ discussed in detail in previous chapters):
     testing the overall performance of the model. Separating the
     features and the class label is also handled during this stage.
 
-[]{#_idTextAnchor163}
 
-### Creation {#_idParaDest-158}
+
+### Creation
 
 This stage involves all of the steps that are required to create a model
 that fits the data that is available. This can be done by selecting
@@ -124,7 +124,7 @@ The processes in this stage will be discussed briefly, as follows:
 
 2.  **Training Process**: This process involves training the model using
     the training dataset. This means that the algorithm uses the
-    features data (`X`{.literal}) and the label classes (`Y`{.literal})
+    features data (`X`) and the label classes (`Y`)
     to determine relationship patterns that will help generalize to
     unseen data and make predictions when the class label is not
     available.
@@ -147,9 +147,9 @@ The processes in this stage will be discussed briefly, as follows:
     select the one that outperforms the others. This comparison should
     be done by using the same metric for all the models.
 
-[]{#_idTextAnchor164}
 
-### Interaction {#_idParaDest-159}
+
+### Interaction
 
 The final stage in building a comprehensive machine learning program
 consists of allowing the final user to easily interact with the model.
@@ -167,7 +167,7 @@ users can interact with the model:
 2.  **Loading the Model**: Once the model has been saved in a file, it
     can be accessed by loading the file into any code. The model is then
     stored in a variable that can be used to apply the
-    `predict`{.literal} method on unseen data. This process will also be
+    `predict` method on unseen data. This process will also be
     explained later in this chapter.
 3.  **Channel of Interaction**: Finally, it is crucial to develop an
     interactive and easy way to perform predictions using the saved
@@ -181,9 +181,9 @@ The following diagram illustrates the preceding stages:
 
 <div>
 
-::: {#_idContainer102 .IMG---Figure}
+
 ![Figure 6.1: Stages for building a machine learning program
-](3_files/B15781_06_01.jpg)
+](./images/B15781_06_01.jpg)
 :::
 
 </div>
@@ -194,9 +194,9 @@ The rest of this chapter will focus on the final stage of building a
 model (the interaction), considering that all the previous steps were
 discussed in previous chapters.
 
-[]{#_idTextAnchor165}
 
-Understanding the Dataset {#_idParaDest-160}
+
+Understanding the Dataset
 -------------------------
 
 To learn how to implement the processes in the *Interaction* section, we
@@ -225,12 +225,12 @@ Decision Support Systems, Elsevier, 62:22-31, June 2014.
 Once you have accessed the link of the UC Irvine Machine Learning
 repository, follow these steps to download the dataset:
 
-1.  First, click on the `Data Folder`{.literal} link.
+1.  First, click on the `Data Folder` link.
 
-2.  Click the `bank`{.literal} hyperlink to trigger the download
+2.  Click the `bank` hyperlink to trigger the download
 
-3.  Open the `.zip`{.literal} folder and extract the
-    `bank-full.csv`{.literal} file.
+3.  Open the `.zip` folder and extract the
+    `bank-full.csv` file.
 
     In this section, we will perform a quick exploration of the dataset
     in a Jupyter Notebook. However, in *Activity 6.01*, *Performing the
@@ -239,12 +239,7 @@ repository, follow these steps to download the dataset:
     dataset to arrive at a better mode.
 
 4.  Import the required libraries:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     import pandas as pd
     import numpy as np
     ```
@@ -253,19 +248,14 @@ repository, follow these steps to download the dataset:
 5.  As we have learned thus far, the dataset can be loaded into a
     Jupyter Notebook using Pandas:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     data = pd.read_csv("bank-full.csv")
     data.head()
     ```
     :::
 
     The preceding code reads all the features for one instance in a
-    single column, since the `read_csv`{.literal} function uses commas
+    single column, since the `read_csv` function uses commas
     as the default delimiter for columns, while the dataset uses
     semicolons as the delimiter, as can be seen by displaying the head
     of the resulting DataFrame.
@@ -278,24 +268,19 @@ repository, follow these steps to download the dataset:
 
     The DataFrame will look as follows:
 
-    ::: {#_idContainer103 .IMG---Figure}
+
     ![Figure 6.2: Screenshot of the data in the .csv file before
-    splitting the data into columns ](3_files/B15781_06_02.jpg)
+    splitting the data into columns ](./images/B15781_06_02.jpg)
     :::
 
     Figure 6.2: Screenshot of the data in the .csv file before splitting
     the data into columns
 
-    This can be fixed by adding the `delimiter`{.literal} parameter to
-    the `read_csv`{.literal} function and defining the semicolon as the
+    This can be fixed by adding the `delimiter` parameter to
+    the `read_csv` function and defining the semicolon as the
     delimiter, as shown in the following code snippet:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     data = pd.read_csv("bank-full.csv", delimiter = ";")
     data.head()
     ```
@@ -303,9 +288,9 @@ repository, follow these steps to download the dataset:
 
     After this step, the data should look as follows:
 
-    ::: {#_idContainer104 .IMG---Figure}
+
     ![Figure 6.3: Screenshot of the data in the .csv file after
-    splitting it into columns ](3_files/B15781_06_03.jpg)
+    splitting it into columns ](./images/B15781_06_03.jpg)
     :::
 
     Figure 6.3: Screenshot of the data in the .csv file after splitting
@@ -315,26 +300,21 @@ repository, follow these steps to download the dataset:
     values that should be handled as missing values.
 
 6.  To aid the process of dealing with missing values, all unknown
-    values will be replaced by `NaN`{.literal} using Pandas\'
-    `replace`{.literal} function, as well as NumPy, as follows:
+    values will be replaced by `NaN` using Pandas\'
+    `replace` function, as well as NumPy, as follows:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     data = data.replace("unknown", np.NaN)
     data.head()
     ```
     :::
 
-    By printing the head of the `data`{.literal} variable, the output of
+    By printing the head of the `data` variable, the output of
     the preceding code snippet is as follows:
 
-    ::: {#_idContainer105 .IMG---Figure}
+
     ![Figure 6.4: Screenshot of the data in the .csv file after
-    replacing unknown values ](3_files/B15781_06_04.jpg)
+    replacing unknown values ](./images/B15781_06_04.jpg)
     :::
 
     Figure 6.4: Screenshot of the data in the .csv file after replacing
@@ -343,17 +323,12 @@ repository, follow these steps to download the dataset:
     This will allow us to easily handle missing values during the
     pre-processing of the dataset.
 
-7.  Finally, the edited dataset is saved in a new `.csv`{.literal} file
+7.  Finally, the edited dataset is saved in a new `.csv` file
     so that it can be used for the activities throughout this chapter.
-    You can do this by using the `to_csv`{.literal} function, as
+    You can do this by using the `to_csv` function, as
     follows:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     data.to_csv("bank-full-dataset.csv")
     ```
     :::
@@ -370,7 +345,7 @@ repository, follow these steps to download the dataset:
 The file should contain a total of 45,211 instances, each with 16
 features and one class label, which can be verified by printing the
 shape of the variable holding the dataset. The class label is binary, of
-the `yes`{.literal} or `no`{.literal} type, and indicates whether the
+the `yes` or `no` type, and indicates whether the
 client subscribes to a term deposit with the bank.
 
 Each instance represents a client of the bank, while the features
@@ -385,9 +360,9 @@ data:
 
 <div>
 
-::: {#_idContainer106 .IMG---Figure}
+
 ![Figure 6.5: A table describing the features of the dataset
-](3_files/B15781_06_05.jpg)
+](./images/B15781_06_05.jpg)
 :::
 
 </div>
@@ -397,17 +372,17 @@ Figure 6.5: A table describing the features of the dataset
 Note
 
 You can find the preceding descriptions and more in this book\'s GitHub
-repository, in the folder named `Chapter06`{.literal}. The file for the
-preceding example is named `bank-names.txt`{.literal} and can be found
-in the `.zip`{.literal} folder called `bank.zip`{.literal}.
+repository, in the folder named `Chapter06`. The file for the
+preceding example is named `bank-names.txt` and can be found
+in the `.zip` folder called `bank.zip`.
 
 Using the information we obtained while exploring the dataset, it is
 possible to proceed with pre-processing the data and training the model,
 which will be the purpose of the following activity.
 
-[]{#_idTextAnchor166}
 
-Activity 6.01: Performing the Preparation and Creation Stages for the Bank Marketing Dataset {#_idParaDest-161}
+
+Activity 6.01: Performing the Preparation and Creation Stages for the Bank Marketing Dataset
 --------------------------------------------------------------------------------------------
 
 The objective of this activity is to perform the processes in the
@@ -445,7 +420,7 @@ analysis, revisit *Chapter 3*, *Supervised Learning -- Key Steps*, and
     the required elements.
 
 2.  Load the dataset into the notebook. Make sure that you load the one
-    that was edited previously, named `bank-full-dataset.csv`{.literal},
+    that was edited previously, named `bank-full-dataset.csv`,
     which is also available at <https://packt.live/2wnJyny>.
 
 3.  Select the metric that is the most appropriate for measuring the
@@ -459,12 +434,7 @@ analysis, revisit *Chapter 3*, *Supervised Learning -- Key Steps*, and
     it must be converted into a numeric form that follows the respective
     order. Use the following code snippet to do so:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     data["education"] = data["education"].fillna["unknown"]
     encoder = ["unknown", "primary", "secondary", "tertiary"]
     for i, word in enumerate(encoder):
@@ -501,8 +471,8 @@ Expected output:
 
 <div>
 
-::: {#_idContainer107 .IMG---Figure}
-![Figure 6.6: Expected output ](3_files/B15781_06_06.jpg)
+
+![Figure 6.6: Expected output ](./images/B15781_06_06.jpg)
 :::
 
 </div>
@@ -515,10 +485,10 @@ The solution for this activity can be found via [this
 link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec07/6-building-your-own-program).
 
 
-Saving and Loading a Trained Model {#_idParaDest-162}
+Saving and Loading a Trained Model
 ==================================
 
-::: {#_idContainer109 .Content}
+
 Although the process of manipulating a dataset and training the right
 model is crucial for developing a machine learning project, the work
 does not end there. Knowing how to save a trained model is key as this
@@ -531,9 +501,9 @@ to know how to load the saved model in order to use it to make
 predictions on new data. By saving and loading a model, we allow for the
 model to be reused at any moment and through many different means.
 
-[]{#_idTextAnchor168}
 
-Saving a Model {#_idParaDest-163}
+
+Saving a Model
 --------------
 
 The process of saving a model is also called **serialization**, and it
@@ -550,15 +520,15 @@ directly apply the saved model to new data, without the need for
 retraining.
 
 There are two main ways to save a trained model, one of which will be
-explained in this section. The `pickle`{.literal} module is the standard
+explained in this section. The `pickle` module is the standard
 way to serialize objects in Python, and it works by implementing a
 powerful algorithm that serializes the model and then saves it as a
-`.pkl`{.literal} file.
+`.pkl` file.
 
 Note
 
 The other module that\'s available for saving a trained model is
-`joblib`{.literal}, which is part of the SciPy ecosystem.
+`joblib`, which is part of the SciPy ecosystem.
 
 However, take into account that models are only saved when they are
 meant to be used in future projects or for future predictions. When a
@@ -566,9 +536,9 @@ machine learning project is developed to understand the current data,
 there is no need to save it as the analysis will be performed after the
 model has been trained.
 
-[]{#_idTextAnchor169}
 
-Exercise 6.01: Saving a Trained Model {#_idParaDest-164}
+
+Exercise 6.01: Saving a Trained Model
 -------------------------------------
 
 For the following exercise, we will use the Fertility Dataset that we
@@ -585,12 +555,7 @@ The dataset is also available in this book\'s GitHub repository:
     the required elements to load a dataset, train a multilayer
     perceptron, and save a trained model:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     import pandas as pd
     from sklearn.neural_network import MLPClassifier
     import pickle
@@ -598,21 +563,16 @@ The dataset is also available in this book\'s GitHub repository:
     ```
     :::
 
-    The `pickle`{.literal} module, as explained previously, will be used
-    to save the trained model. The `os`{.literal} module is used to
+    The `pickle` module, as explained previously, will be used
+    to save the trained model. The `os` module is used to
     locate the current working directory of the Jupyter Notebook in
     order to save the model in the same path.
 
 2.  Load the Fertility dataset and split the data into a features
-    matrix, `X`{.literal}, and a target matrix, `Y`{.literal}. Use the
-    `header = None`{.literal} argument, since the dataset does not have
+    matrix, `X`, and a target matrix, `Y`. Use the
+    `header = None` argument, since the dataset does not have
     a header row:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     data = pd.read_csv("fertility_Diagnosis.csv", header=None)
     X = data.iloc[:,:9]
     Y = data.iloc[:,9]
@@ -620,16 +580,11 @@ The dataset is also available in this book\'s GitHub repository:
     :::
 
 3.  Train a multilayer perceptron classifier over the data. Set the
-    number of iterations to `1200`{.literal} to avoid getting a warning
+    number of iterations to `1200` to avoid getting a warning
     message indicating that the default number of iterations is
     insufficient to achieve convergence:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     model = MLPClassifier(max_iter = 1200)
     model.fit(X,Y)
     ```
@@ -637,34 +592,29 @@ The dataset is also available in this book\'s GitHub repository:
 
     Note
 
-    As a reminder, the output from calling the `fit`{.literal} method
+    As a reminder, the output from calling the `fit` method
     consists of the model currently being trained with all the
     parameters that it takes in.
 
 4.  Serialize the model and save it in a file named
-    `model_exercise.pkl`{.literal}. Use the following code to do so:
+    `model_exercise.pkl`. Use the following code to do so:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     path = os.getcwd() + "/model_exercise.pkl"
     file = open(path, "wb")
     pickle.dump(model, file)
     ```
     :::
 
-    In the preceding snippet, the `path`{.literal} variable contains the
+    In the preceding snippet, the `path` variable contains the
     path to the file that will hold the serialized model, where the
     first element locates the current working directory and the second
     element defines the name of the file to be saved. The
-    `file`{.literal} variable is used to create a file that will be
+    `file` variable is used to create a file that will be
     saved in the desired path and has the file mode set to
-    `wb`{.literal}, which stands for **write** and **binary** (this is
+    `wb`, which stands for **write** and **binary** (this is
     the way the serialized model must be written). Finally, the
-    `dump`{.literal} method is applied over the `pickle`{.literal}
+    `dump` method is applied over the `pickle`
     module. It takes the model that was created previously, serializes
     it, and then saves it.
 
@@ -680,33 +630,33 @@ The dataset is also available in this book\'s GitHub repository:
 You have successfully saved a trained model. In the next section, we
 will be looking at loading a saved model.
 
-[]{#_idTextAnchor170}
 
-Loading a Model {#_idParaDest-165}
+
+Loading a Model
 ---------------
 
 The process of loading a model is also known as **deserialization**, and
 it consists of taking the previously saved file, deserializing it, and
 then loading it into code or Terminal so that you can use the model on
-new data. The `pickle`{.literal} module is also used to load the model.
+new data. The `pickle` module is also used to load the model.
 
 It is worth mentioning that the model does not need to be loaded in the
 same code file where it was trained and saved; on the contrary, it is
 meant to be loaded in any other file. This is mainly because the
-`load`{.literal} method of the `pickle`{.literal} library will return
+`load` method of the `pickle` library will return
 the model in a variable that will be used to apply the
-`predict`{.literal} method.
+`predict` method.
 
 When loading a model, it is important to not only import the
-`pickle`{.literal} and `os`{.literal} modules like we did before, but
+`pickle` and `os` modules like we did before, but
 also the class of the algorithm that is used to train the model. For
 instance, to load a neural network model, it is necessary to import the
-`MLPClassifier`{.literal} class, from the `neural_network`{.literal}
+`MLPClassifier` class, from the `neural_network`
 module of scikit-learn.
 
-[]{#_idTextAnchor171}
 
-Exercise 6.02: Loading a Saved Model {#_idParaDest-166}
+
+Exercise 6.02: Loading a Saved Model
 ------------------------------------
 
 In this exercise, using a different Jupyter Notebook, we will load the
@@ -715,76 +665,56 @@ perform a prediction. Follow these steps to complete this exercise:
 
 1.  Open a Jupyter Notebook to implement this exercise.
 
-2.  Import the `pickle`{.literal} and `os`{.literal} modules. Also,
-    import the `MLPCLassifier`{.literal} class:
+2.  Import the `pickle` and `os` modules. Also,
+    import the `MLPCLassifier` class:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     import pickle
     import os
     from sklearn.neural_network import MLPClassifier
     ```
     :::
 
-    The `pickle`{.literal} module, as explained previously, will be used
-    to load the trained model. The `os`{.literal} module is used to
+    The `pickle` module, as explained previously, will be used
+    to load the trained model. The `os` module is used to
     locate the current working directory of the Jupyter Notebook in
     order to find the file containing the saved model.
 
-3.  Use `pickle`{.literal} to load the saved model, as follows:
+3.  Use `pickle` to load the saved model, as follows:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     path = os.getcwd() + "/model_exercise.pkl"
     file = open(path, "rb")
     model = pickle.load(file)
     ```
     :::
 
-    Here, the `path`{.literal} variable is used to store the path to the
-    file containing the saved model. Next, the `file`{.literal} variable
-    is used to open the file using the `rb`{.literal} file mode, which
-    stands for **read** and **binary**. Finally, the `load`{.literal}
-    method is applied on the `pickle`{.literal} module to deserialize
-    and load the model into the `model`{.literal} variable.
+    Here, the `path` variable is used to store the path to the
+    file containing the saved model. Next, the `file` variable
+    is used to open the file using the `rb` file mode, which
+    stands for **read** and **binary**. Finally, the `load`
+    method is applied on the `pickle` module to deserialize
+    and load the model into the `model` variable.
 
 4.  Use the loaded model to make a prediction for an individual, with
     the following values as the values for the features:
-    `-0.33, 0.67, 1, 1, 0, 0, 0.8, -1, 0.5`{.literal}.
+    `-0.33, 0.67, 1, 1, 0, 0, 0.8, -1, 0.5`.
 
-    Store the output obtained by applying the `predict`{.literal} method
-    to the `model`{.literal} variable, in a variable named
-    `pred`{.literal}:
+    Store the output obtained by applying the `predict` method
+    to the `model` variable, in a variable named
+    `pred`:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     pred = model.predict([[-0.33,0.67,1,1,0,0,0.8,-1,0.5]])
     print(pred)
     ```
     :::
 
-    By printing the `pred`{.literal} variable, we get the value of the
-    prediction to be equal to `O`{.literal}, which means that the
+    By printing the `pred` variable, we get the value of the
+    prediction to be equal to `O`, which means that the
     individual has an altered diagnosis, as shown here:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     ['O']
     ```
     :::
@@ -799,9 +729,9 @@ To access the source code for this specific section, please refer to
 You can also run this example online at <https://packt.live/3dYgVxL>.
 You must execute the entire Notebook in order to get the desired result.
 
-[]{#_idTextAnchor172}
 
-Activity 6.02: Saving and Loading the Final Model for the Bank Marketing Dataset {#_idParaDest-167}
+
+Activity 6.02: Saving and Loading the Final Model for the Bank Marketing Dataset
 --------------------------------------------------------------------------------
 
 Consider the following scenario: you have to save the model you created
@@ -827,7 +757,7 @@ Follow these steps to complete this activity:
     Preparation and Creation Stages for the Bank Marketing Dataset*.
 
 2.  For learning purposes, take the model that you selected as the best
-    model, remove the `random_state`{.literal} argument, and run it a
+    model, remove the `random_state` argument, and run it a
     couple of times.
 
     Make sure that you run the calculation of the precision metric every
@@ -838,15 +768,15 @@ Follow these steps to complete this activity:
 
     Note
 
-    The results obtained in this book use a `random_state`{.literal} of
-    `2`{.literal}.
+    The results obtained in this book use a `random_state` of
+    `2`.
 
 3.  Save the model that you choose as the best performing one in a file
-    named `final_model.pkl`{.literal}.
+    named `final_model.pkl`.
 
     Note
 
-    Make sure that you use the `os`{.literal} module to save the model
+    Make sure that you use the `os` module to save the model
     in the same path as the current Jupyter Notebook.
 
 4.  Open a new Jupyter Notebook and import the required modules and
@@ -855,19 +785,14 @@ Follow these steps to complete this activity:
 5.  Load the model.
 
 6.  Perform a prediction for an individual by using the following
-    values: `42`{.literal}, `2`{.literal}, `0`{.literal}, `0`{.literal},
-    `1`{.literal}, `2`{.literal}, `1`{.literal}, `0`{.literal},
-    `5`{.literal}, `8`{.literal}, `380`{.literal}, `1`{.literal},
-    `-1`{.literal}, `0`{.literal}.
+    values: `42`, `2`, `0`, `0`,
+    `1`, `2`, `1`, `0`,
+    `5`, `8`, `380`, `1`,
+    `-1`, `0`.
 
     Expected output:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     [0] 
     ```
     :::
@@ -878,10 +803,10 @@ Follow these steps to complete this activity:
     link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec07/6-building-your-own-program).
 
 
-Interacting with a Trained Model {#_idParaDest-168}
+Interacting with a Trained Model
 ================================
 
-::: {#_idContainer109 .Content}
+
 Once the model has been created and saved, it is time for the last step
 of building a comprehensive machine learning program: allowing easy
 interaction with the model. This step not only allows the model to be
@@ -915,9 +840,9 @@ be displayed:
 
 <div>
 
-::: {#_idContainer108 .IMG---Figure}
+
 ![Figure 6.7: Illustration of the interaction between the user and the
-model ](5_files/B15781_06_07.jpg)
+model ](./images/B15781_06_07.jpg)
 :::
 
 </div>
@@ -925,15 +850,15 @@ model ](5_files/B15781_06_07.jpg)
 Figure 6.7: Illustration of the interaction between the user and the
 model
 
-[]{#_idTextAnchor174}
 
-Exercise 6.03: Creating a Class and a Channel to Interact with a Trained Model {#_idParaDest-169}
+
+Exercise 6.03: Creating a Class and a Channel to Interact with a Trained Model
 ------------------------------------------------------------------------------
 
 In this exercise, we will create a class in a text editor that takes the
 input data and feeds it to the model that was trained in *Exercise
 6.01*, *Saving a Trained Model*, with the
-`Fertility Diagnosis`{.literal} dataset. Additionally, we will create a
+`Fertility Diagnosis` dataset. Additionally, we will create a
 form in a Jupyter Notebook, where users can input the data and obtain a
 prediction.
 
@@ -941,39 +866,24 @@ To create a class in a text editor, follow these steps:
 
 1.  Open a text editor of preference, such as PyCharm.
 
-2.  Import `pickle`{.literal} and `os`{.literal}:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+2.  Import `pickle` and `os`:
+    ```
     import pickle
     import os
     ```
     :::
 
-3.  Create a class object and name it `NN_Model`{.literal}:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+3.  Create a class object and name it `NN_Model`:
+    ```
     Class NN_Model(object):
     ```
     :::
 
 4.  Inside of the class, create an initializer method that loads the
-    file containing the saved model (`model_exercise.pkl`{.literal})
+    file containing the saved model (`model_exercise.pkl`)
     into the code:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     def __init__(self):
         path = os.getcwd() + "/model_exercise.pkl"
         file = open(path, "rb")
@@ -986,22 +896,17 @@ To create a class in a text editor, follow these steps:
     Remember to indent the method inside of the class object.
 
     As a general rule, all the methods inside a class object must have
-    the `self`{.literal} argument. On the other hand, when defining the
-    variable of the model using the `self`{.literal} statement, it is
+    the `self` argument. On the other hand, when defining the
+    variable of the model using the `self` statement, it is
     possible to make use of the variable in any other method of the same
     class.
 
-5.  Inside the class named `NN_Model`{.literal}, create a
-    `predict`{.literal} method. It should take in the feature values and
-    input them as arguments to the `predict`{.literal} method of the
+5.  Inside the class named `NN_Model`, create a
+    `predict` method. It should take in the feature values and
+    input them as arguments to the `predict` method of the
     model so that it can feed them into the model and make a prediction:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     def predict(self, season, age, childish, trauma, \
                 surgical, fevers, alcohol, smoking, sitting):
         X = [[season, age, childish, trauma, surgical, \
@@ -1014,8 +919,8 @@ To create a class in a text editor, follow these steps:
 
     Remember to indent the method inside of the class object.
 
-6.  Save the code as a Python file (`.py`{.literal}) and name it
-    `exerciseClass.py`{.literal}. The name of this file will be used to
+6.  Save the code as a Python file (`.py`) and name it
+    `exerciseClass.py`. The name of this file will be used to
     load the class into the Jupyter Notebook for the following steps.
 
     Now, let\'s code the frontend solution of the program, which
@@ -1032,25 +937,15 @@ To create a class in a text editor, follow these steps:
 
 8.  To import the model class that was saved as a Python file in *Step
     6*, use the following code snippet:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     from exerciseClass import NN_Model
     ```
     :::
 
-9.  Initialize the `NN_Model`{.literal} class and store it in a variable
-    called `model`{.literal}:
+9.  Initialize the `NN_Model` class and store it in a variable
+    called `model`:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     model = NN_Model()
     ```
     :::
@@ -1065,16 +960,11 @@ To create a class in a text editor, follow these steps:
 
     Note
 
-    The `#`{.literal} symbol []{#_idTextAnchor175}in the code snippet
+    The `#` symbol in the code snippet
     below denotes a code comment. Comments are added into code to help
     explain specific bits of logic.
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     a = 1      # season in which the analysis was performed
     b = 0.56   # age at the time of the analysis
     c = 1      # childish disease
@@ -1087,17 +977,12 @@ To create a class in a text editor, follow these steps:
     ```
     :::
 
-11. Perform a prediction by using the `predict`{.literal} method over
-    the `model`{.literal} variable. Input the feature values as
+11. Perform a prediction by using the `predict` method over
+    the `model` variable. Input the feature values as
     arguments, taking into account that you must name them in the same
-    way that you did when creating the `predict`{.literal} function in
+    way that you did when creating the `predict` function in
     the text editor:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     pred = model.predict(season=a, age=b, childish=c, \
                          trauma=d, surgical=e, fevers=f, \
                          alcohol=g, smoking=h, sitting=i)
@@ -1107,12 +992,7 @@ To create a class in a text editor, follow these steps:
 
 12. By printing the prediction, we get the following output:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     ['N']
     ```
     :::
@@ -1131,9 +1011,9 @@ To create a class in a text editor, follow these steps:
 You have successfully created a function and a channel to interact with
 your model.
 
-[]{#_idTextAnchor176}
 
-Activity 6.03: Allowing Interaction with the Bank Marketing Dataset Model {#_idParaDest-170}
+
+Activity 6.03: Allowing Interaction with the Bank Marketing Dataset Model
 -------------------------------------------------------------------------
 
 Consider the following scenario: after seeing the results that you
@@ -1155,18 +1035,18 @@ Follow these steps to complete this activity:
 
 1.  In a text editor, create a class object that contains two main
     methods. One should be an initializer that loads the saved model,
-    while the other should be a `predict`{.literal} method, wherein the
+    while the other should be a `predict` method, wherein the
     data is fed to the model to retrieve an output.
 2.  In a Jupyter Notebook, import and initialize the class that you
     created in the previous step. Next, create the variables that will
     hold the values for all the features of a new observation. Use the
-    following values: `42`{.literal}, `2`{.literal}, `0`{.literal},
-    `0`{.literal}, `1`{.literal}, `2`{.literal}, `1`{.literal},
-    `0`{.literal}, `5`{.literal}, `8`{.literal}, `380`{.literal},
-    `1`{.literal}, `-1`{.literal}, `0`{.literal}.
-3.  Perform a prediction by applying the `predict`{.literal} method.
+    following values: `42`, `2`, `0`,
+    `0`, `1`, `2`, `1`,
+    `0`, `5`, `8`, `380`,
+    `1`, `-1`, `0`.
+3.  Perform a prediction by applying the `predict` method.
 
-Expected output: You will get `0`{.literal} as the output when you
+Expected output: You will get `0` as the output when you
 complete this activity.
 
 Note
@@ -1175,10 +1055,10 @@ The solution for this activity can be found via [this
 link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec07/6-building-your-own-program).
 
 
-Summary {#_idParaDest-171}
+Summary
 =======
 
-::: {#_idContainer109 .Content}
+
 This chapter wraps up all of the concepts and techniques that are
 required to successfully train a machine learning model based on
 training data. In this chapter, we introduced the idea of building a
@@ -1190,7 +1070,7 @@ processes: saving the model, loading the model, and creating a channel
 that allows users to easily interact with the model and obtain an
 outcome.
 
-For saving and loading a model, the `pickle`{.literal} module was
+For saving and loading a model, the `pickle` module was
 introduced. This module is capable of serializing the model to save it
 in a file, while also being capable of deserializing it to make use of
 the model in the future.

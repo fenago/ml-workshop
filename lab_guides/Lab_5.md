@@ -1,11 +1,11 @@
 
-5. Supervised Learning -- Key Steps {#_idParaDest-126}
+5. Supervised Learning -- Key Steps
 ===================================
 
-::: {#_idContainer084 .Content}
+
 :::
 
-::: {#_idContainer099 .Content}
+
 Overview
 
 In this chapter, we will dive deep into the concept of neural networks
@@ -18,10 +18,10 @@ a classification problem and fine-tune some of the hyperparameters of
 the network to improve its performance.
 
 
-Introduction {#_idParaDest-127}
+Introduction
 ============
 
-::: {#_idContainer099 .Content}
+
 In the preceding chapter, we explored three machine learning algorithms
 to solve supervised learning tasks, either for classification or
 regression. In this chapter, we will explore one of the most popular
@@ -47,10 +47,10 @@ performance of ANNs in comparison to the other supervised learning
 algorithms.
 
 
-Artificial Neural Networks {#_idParaDest-128}
+Artificial Neural Networks
 ==========================
 
-::: {#_idContainer099 .Content}
+
 Although there are several machine learning algorithms available to
 solve data problems, as we have already stated, ANNs have become
 increasingly popular among data scientists, on account of their ability
@@ -71,9 +71,9 @@ passing the processed information to the next neuron:
 
 <div>
 
-::: {#_idContainer085 .IMG---Figure}
+
 ![Figure 5.1: Visual representation of a human neuron
-](3_files/B15781_05_01.jpg)
+](./images/B15781_05_01.jpg)
 :::
 
 </div>
@@ -87,15 +87,15 @@ no real evidence regarding how human neurons process the information
 that they receive, and hence the model relies on mathematical functions
 that map an input to a desired output.
 
-[]{#_idTextAnchor134}
 
-How Do ANNs Work? {#_idParaDest-129}
+
+How Do ANNs Work?
 -----------------
 
 Before we dive into the process that is followed by an ANN, let\'s start
 by looking at its main components:
 
--   **Input layer**: This layer is also known as `X`{.literal}, as it
+-   **Input layer**: This layer is also known as `X`, as it
     contains all the data from the dataset (each instance with its
     features).
 
@@ -112,7 +112,7 @@ by looking at its main components:
     iteration to approximate the prediction to the ground truth. This
     will be explained later.
 
--   **Output layer**: Also known as `Y_hat`{.literal}, this layer is the
+-   **Output layer**: Also known as `Y_hat`, this layer is the
     prediction made by the model, based on the data received from the
     hidden layers. This prediction is presented in the form of a
     probability, where the class label with a higher probability is the
@@ -126,8 +126,8 @@ under 3 are the neurons of the output layer:
 
 <div>
 
-::: {#_idContainer086 .IMG---Figure}
-![Figure 5.2: Basic architecture of an ANN ](3_files/B15781_05_02.jpg)
+
+![Figure 5.2: Basic architecture of an ANN ](./images/B15781_05_02.jpg)
 :::
 
 </div>
@@ -145,8 +145,8 @@ output layer.
 
 Considering these steps, the main objective of the manufacturing process
 is to achieve a final part that highly resembles the part that the
-process aimed to build, meaning that the output, `Y_hat`{.literal},
-should maximize its similarity to `Y`{.literal} (the ground truth) for a
+process aimed to build, meaning that the output, `Y_hat`,
+should maximize its similarity to `Y` (the ground truth) for a
 model to be considered a good fit to the data.
 
 The actual methodology to train an ANN is an iterative process comprised
@@ -157,9 +157,9 @@ number of iterations is met.
 
 Let\'s explore each of the steps of the iteration process in detail.
 
-[]{#_idTextAnchor135}
 
-### Forward Propagation {#_idParaDest-130}
+
+### Forward Propagation
 
 The input layer feeds the initial information to the ANN. The processing
 of the data is done by propagating data bits through the depth (number
@@ -170,9 +170,9 @@ break the linearity, as follows:
 
 <div>
 
-::: {#_idContainer087 .IMG---Figure}
+
 ![Figure 5.3: The linear and activation functions used by an ANN
-](3_files/B15781_05_03.jpg)
+](./images/B15781_05_03.jpg)
 :::
 
 </div>
@@ -193,9 +193,9 @@ layer) is replaced by the output of the previous layer
 
 <div>
 
-::: {#_idContainer088 .IMG---Figure}
+
 ![Figure 5.4: The values calculated for the second layer of the ANN
-](3_files/B15781_05_04.jpg)
+](./images/B15781_05_04.jpg)
 :::
 
 </div>
@@ -219,16 +219,16 @@ common ones are the **Rectified Linear Unit** (**ReLU**), the
 **Hyperbolic tangent** (**tanh**), and the **Sigmoid** and **Softmax**
 functions, which will be explained in a subsequent section.
 
-[]{#_idTextAnchor136}
 
-### Cost Function {#_idParaDest-131}
+
+### Cost Function
 
 Considering that the final objective of the training process is to build
 a model based on a given set of data that maps an expected output, it is
 particularly important to measure the model\'s ability to estimate a
-relation between `X`{.literal} and `Y`{.literal} by comparing the
-differences between the predicted value (`Y_hat`{.literal}) and the
-ground truth (`Y`{.literal}). This is accomplished by calculating the
+relation between `X` and `Y` by comparing the
+differences between the predicted value (`Y_hat`) and the
+ground truth (`Y`). This is accomplished by calculating the
 cost function (also known as the **loss function**) to determine how
 poor the model\'s predictions are. The cost function is calculated for
 each iteration to measure the progress of the model along the iteration
@@ -261,9 +261,9 @@ For a multiclass classification task, the formula is as follows:
 
 <div>
 
-::: {#_idContainer089 .IMG---Figure}
+
 ![Figure 5.5: The cost function for a multiclass classification task
-](3_files/B15781_05_05.jpg)
+](./images/B15781_05_05.jpg)
 :::
 
 </div>
@@ -280,9 +280,9 @@ following section.
 Moreover, for regression tasks, the cost function would be the RMSE,
 which was explained in *Chapter 3*, *Supervised Learning -- Key Steps*.
 
-[]{#_idTextAnchor137}
 
-### Backpropagation {#_idParaDest-132}
+
+### Backpropagation
 
 The backpropagation procedure was introduced as part of the training
 process of ANNs to make learning faster. It basically involves
@@ -312,9 +312,9 @@ until it reaches a minimum point:
 
 <div>
 
-::: {#_idContainer090 .IMG---Figure}
+
 ![Figure 5.6: Example of the iterative process of training an ANN
-](3_files/B15781_05_06.jpg)
+](./images/B15781_05_06.jpg)
 :::
 
 </div>
@@ -328,8 +328,8 @@ consider the following diagram:
 
 <div>
 
-::: {#_idContainer091 .IMG---Figure}
-![Figure 5.7: Examples of minimum points ](3_files/B15781_05_07.jpg)
+
+![Figure 5.7: Examples of minimum points ](./images/B15781_05_07.jpg)
 :::
 
 </div>
@@ -340,9 +340,9 @@ Although all three points can be considered minimum points when compared
 to the points to their left and right, only one of them is the global
 minima.
 
-[]{#_idTextAnchor138}
 
-### Updating the Weights and Biases {#_idParaDest-133}
+
+### Updating the Weights and Biases
 
 Taking the derivatives\' average that was calculated during
 backpropagation, the final step of an iteration is to update the values
@@ -371,9 +371,9 @@ quickly.
 Once the weights and the biases have been updated, the entire process
 starts again.
 
-[]{#_idTextAnchor139}
 
-Understanding the Hyperparameters {#_idParaDest-134}
+
+Understanding the Hyperparameters
 ---------------------------------
 
 Hyperparameters, as you have seen so far, are parameters that can be
@@ -397,9 +397,9 @@ Considering that the number of hyperparameters that can be changed for
 training an ANN is large, the most commonly used ones will be explained
 in the following sections.
 
-[]{#_idTextAnchor140}
 
-### Number of Hidden Layers and Units {#_idParaDest-135}
+
+### Number of Hidden Layers and Units
 
 The number of hidden layers and the number of units in each layer can be
 set by the researcher, as mentioned previously. Again, there is no exact
@@ -428,9 +428,9 @@ Nonetheless, it is important to consider the fact that based on research
 activity, deeper networks (networks with many hidden layers) outperform
 wider networks (networks with many units in each layer).
 
-[]{#_idTextAnchor141}
 
-### Activation Functions {#_idParaDest-136}
+
+### Activation Functions
 
 As mentioned previously, the activation function is used to introduce
 non-linearity to the model. The most commonly used activation functions
@@ -465,9 +465,9 @@ classification problems, as it only outputs the probability for two
 class labels, whereas the Softmax activation function can be used for
 either binary or multiclass classification problems.
 
-[]{#_idTextAnchor142}
 
-### Regularization {#_idParaDest-137}
+
+### Regularization
 
 Regularization is a technique used in machine learning to improve a
 model that is suffering from overfitting, which means that this
@@ -494,9 +494,9 @@ forms of regularization are as follows:
     will be ignored. The units that are ignored are different in each
     iteration step.
 
-[]{#_idTextAnchor143}
 
-### Batch Size {#_idParaDest-138}
+
+### Batch Size
 
 Another hyperparameter to be tuned during the construction of an ANN is
 the batch size. This refers to the number of instances to be fed to the
@@ -515,9 +515,9 @@ As per the result of many years of research, a good practice is to set
 the batch size to a value that is a multiple of 2. Some of the most
 common values are 32, 64, 128, and 256.
 
-[]{#_idTextAnchor144}
 
-### Learning Rate {#_idParaDest-139}
+
+### Learning Rate
 
 The learning rate, as explained previously, is introduced to help
 determine the size of the steps that the model will take to get to the
@@ -531,9 +531,9 @@ Note
 
 The default learning rate value is usually set to 0.001.
 
-[]{#_idTextAnchor145}
 
-### Number of Iterations {#_idParaDest-140}
+
+### Number of Iterations
 
 A neural network is trained through an iterative process, as mentioned
 previously. Therefore, it is necessary to set the number of iterations
@@ -548,9 +548,9 @@ to address underfitted networks. This is because it gives the network
 more time to find the right weights and biases that generalize to the
 training data.
 
-[]{#_idTextAnchor146}
 
-Applications of Neural Networks {#_idParaDest-141}
+
+Applications of Neural Networks
 -------------------------------
 
 In addition to the preceding architecture, a number of new architectures
@@ -568,9 +568,9 @@ handling challenging problems, such as the autonomous abilities of
 self-driving cars, the construction of chatbots, and the recognition of
 faces.
 
-[]{#_idTextAnchor147}
 
-Limitations of Neural Networks {#_idParaDest-142}
+
+Limitations of Neural Networks
 ------------------------------
 
 Some of the limitations of training neural networks are as follows:
@@ -594,10 +594,10 @@ neural networks to data problems that can be solved by simpler models
 makes the costs outweigh the benefits.
 
 
-Applying an Artificial Neural Network {#_idParaDest-143}
+Applying an Artificial Neural Network
 =====================================
 
-::: {#_idContainer099 .Content}
+
 Now that you know the components of an ANN, as well as the different
 steps that it follows to train a model and make predictions, let\'s
 train a simple network using the scikit-learn library.
@@ -616,9 +616,9 @@ classification, an MLP for regression, and a Restricted Boltzmann
 Machine architecture. Considering that the case study consists of a
 classification task, the MLP for classifications will be used.
 
-[]{#_idTextAnchor149}
 
-Scikit-Learn\'s Multilayer Perceptron {#_idParaDest-144}
+
+Scikit-Learn\'s Multilayer Perceptron
 -------------------------------------
 
 An MLP is a supervised learning algorithm that, as the name indicates,
@@ -644,19 +644,19 @@ results from this model can then be used to tune the hyperparameters as
 required.
 
 To train an MLP classifier, it is required that you input two arrays:
-first, the `X`{.literal} input of dimensions (`n_samples`{.literal},
-`n_features`{.literal}) containing the training data, and then the
-`Y`{.literal} input of dimensions (`n_sample`{.literal}) that contains
+first, the `X` input of dimensions (`n_samples`,
+`n_features`) containing the training data, and then the
+`Y` input of dimensions (`n_sample`) that contains
 the label values for each sample.
 
 Similar to the algorithms that we looked at in the previous chapter, the
-model is trained using the `fit`{.literal} method, and then predictions
-can be obtained by using the `predict`{.literal} method on the trained
+model is trained using the `fit` method, and then predictions
+can be obtained by using the `predict` method on the trained
 model.
 
-[]{#_idTextAnchor150}
 
-Exercise 5.01: Applying the MLP Classifier Class {#_idParaDest-145}
+
+Exercise 5.01: Applying the MLP Classifier Class
 ------------------------------------------------
 
 In this exercise, you will train a model using scikit-learn\'s MLP to
@@ -672,14 +672,9 @@ your system.
 
 1.  Open a Jupyter Notebook to implement this exercise. Import all the
     necessary elements to read the dataset and to calculate a model\'s
-    accuracy, as well as scikit-learn\'s `MLPClassifier`{.literal}
+    accuracy, as well as scikit-learn\'s `MLPClassifier`
     class:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     import pandas as pd
     from sklearn.neural_network import MLPClassifier
     from sklearn.metrics import accuracy_score
@@ -687,77 +682,57 @@ your system.
     :::
 
 2.  Using the Fertility Dataset from the previous chapter, read the
-    `.csv`{.literal} file. Make sure that you add the `header`{.literal}
-    argument equal to `None`{.literal} to the `read_csv`{.literal}
+    `.csv` file. Make sure that you add the `header`
+    argument equal to `None` to the `read_csv`
     function, considering that the dataset does not contain a header
     row:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     data = pd.read_csv("fertility_Diagnosis.csv", header=None)
     ```
     :::
 
-3.  Split the dataset into `X`{.literal} and `Y`{.literal} sets in order
+3.  Split the dataset into `X` and `Y` sets in order
     to separate the features data from the label values:
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     X = data.iloc[:,:9]
     Y = data.iloc[:,9]
     ```
     :::
 
-4.  Instantiate the `MLPClassifier`{.literal} class from the
-    `neural_network`{.literal} module of scikit-learn and use the
-    `fit`{.literal} method to train a model. When instantiating the
+4.  Instantiate the `MLPClassifier` class from the
+    `neural_network` module of scikit-learn and use the
+    `fit` method to train a model. When instantiating the
     model, leave all the hyperparameters at their default values, but
-    add a `random_state`{.literal} argument equal to `101`{.literal} to
+    add a `random_state` argument equal to `101` to
     ensure that you get the same results as the one shown in this
     exercise:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     model = MLPClassifier(random_state=101)
     model = model.fit(X, Y)
     ```
     :::
 
-    Address the warning that appears after running the `fit`{.literal}
+    Address the warning that appears after running the `fit`
     method:
 
-    ::: {#_idContainer092 .IMG---Figure}
+
     ![Figure 5.8: Warning message displayed after running the fit method
-    ](4_files/B15781_05_08.jpg)
+    ](./images/B15781_05_08.jpg)
     :::
 
     Figure 5.8: Warning message displayed after running the fit method
 
     As you can see, the warning specifies that after running the default
-    number of iterations, which is `200`{.literal}, the model has not
+    number of iterations, which is `200`, the model has not
     reached convergence.
 
 5.  To address this issue, try higher values for the iterations until
     the warning stops appearing. To change the number of iterations, add
-    the `max_iter`{.literal} argument inside the parentheses during the
+    the `max_iter` argument inside the parentheses during the
     instantiation of the model:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     model = MLPClassifier(random_state=101, max_iter =1200)
     model = model.fit(X, Y)
     ```
@@ -768,43 +743,33 @@ your system.
 
 6.  Finally, perform a prediction by using the model that you trained
     previously, for a new instance with the following values for each
-    feature: `−0.33`{.literal}, `0.69`{.literal}, `0`{.literal},
-    `1`{.literal}, `1`{.literal}, `0`{.literal}, `0.8`{.literal},
-    `0`{.literal}, `0.88`{.literal}.
+    feature: `−0.33`, `0.69`, `0`,
+    `1`, `1`, `0`, `0.8`,
+    `0`, `0.88`.
 
     Use the following code:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     pred = model.predict([[-0.33,0.69,0,1,1,0,0.8,0,0.88]])
     print(pred)
     ```
     :::
 
-    The model\'s prediction is equal to `N`{.literal}, that is, the
+    The model\'s prediction is equal to `N`, that is, the
     model predicts the person with the specified features to have a
     normal diagnosis.
 
 7.  Calculate the accuracy of your model, based on the predictions it
-    achieves over the `X`{.literal} variable, as follows:
+    achieves over the `X` variable, as follows:
 
-    ::: {.informalexample}
-    ::: {.toolbar .clearfix}
-    Copy
-    :::
-
-    ``` {.language-markup}
+    ```
     pred = model.predict(X)
     score = accuracy_score(Y, pred)
     print(score)
     ```
     :::
 
-    The accuracy of your model is equal to `98%`{.literal}.
+    The accuracy of your model is equal to `98%`.
 
     Note
 
@@ -818,9 +783,9 @@ your system.
 You have successfully trained and evaluated the performance of an MLP
 model.
 
-[]{#_idTextAnchor151}
 
-Activity 5.01: Training an MLP for Our Census Income Dataset {#_idParaDest-146}
+
+Activity 5.01: Training an MLP for Our Census Income Dataset
 ------------------------------------------------------------
 
 With the objective of comparing the performance of the algorithms
@@ -837,7 +802,7 @@ data.
 Note
 
 Start this activity using the preprocessed dataset from the previous
-chapter: `census_income_dataset_preprocessed.csv`{.literal}. You can
+chapter: `census_income_dataset_preprocessed.csv`. You can
 also find the preprocessed dataset on this book\'s GitHub repository at
 <https://packt.live/2UQIthA>.
 
@@ -847,23 +812,23 @@ Perform the following steps to complete this activity:
     an MLP, and to measure accuracy.
 
 2.  Using the preprocessed Census Income Dataset, separate the features
-    from the target, creating the variables `X`{.literal} and
-    `Y`{.literal}.
+    from the target, creating the variables `X` and
+    `Y`.
 
 3.  Divide the dataset into training, validation, and testing sets,
     using a split ratio of 10%.
 
     Note
 
-    Remember to continue using a `random_state`{.literal} argument equal
-    to `101`{.literal} when performing the dataset split in order to set
+    Remember to continue using a `random_state` argument equal
+    to `101` when performing the dataset split in order to set
     a seed to arrive at the same results as the ones in this book.
 
-4.  Instantiate the `MLPClassifier`{.literal} class from scikit-learn
+4.  Instantiate the `MLPClassifier` class from scikit-learn
     and train the model with the training data.
 
     Leave all the hyperparameters at their default values. Again, use a
-    `random_state`{.literal} equal to 101.
+    `random_state` equal to 101.
 
     Although a warning will appear specifying that, with the given
     iterations, no convergence was reached, leave the warning
@@ -887,10 +852,10 @@ Perform the following steps to complete this activity:
     Test sets = 0.8415
 
 
-Performance Analysis {#_idParaDest-147}
+Performance Analysis
 ====================
 
-::: {#_idContainer099 .Content}
+
 In the following section, we will first perform error analysis using the
 accuracy metric as a tool to determine the condition that is affecting
 (in greater proportion) the performance of the algorithm. Once the model
@@ -899,9 +864,9 @@ performance of the algorithm. The final model will be compared to those
 that were created during the previous chapter in order to determine
 whether a neural network outperforms the other models.
 
-[]{#_idTextAnchor153}
 
-Error Analysis {#_idParaDest-148}
+
+Error Analysis
 --------------
 
 Using the accuracy score calculated in *Activity 5.01*, *Training an MLP
@@ -913,9 +878,9 @@ chapter were able to achieve an accuracy level of over 97%:
 
 <div>
 
-::: {#_idContainer093 .IMG---Figure}
+
 ![Figure 5.9: Accuracy score and error rate of the network
-](5_files/B15781_05_09.jpg)
+](./images/B15781_05_09.jpg)
 :::
 
 </div>
@@ -937,9 +902,9 @@ suffering from *high bias*, which, as explained in previous chapters,
 can be handled by training a bigger network and/or training for longer
 periods of time (a higher number of iterations).
 
-[]{#_idTextAnchor154}
 
-Hyperparameter Fine-Tuning {#_idParaDest-149}
+
+Hyperparameter Fine-Tuning
 --------------------------
 
 Through error analysis, it was possible to determine that the network is
@@ -953,9 +918,9 @@ trial-and-error approach, the following experiments will be performed:
 
 <div>
 
-::: {#_idContainer094 .IMG---Figure}
+
 ![Figure 5.10: Suggested experiments to tune the hyperparameters
-](5_files/B15781_05_10.jpg)
+](./images/B15781_05_10.jpg)
 :::
 
 </div>
@@ -972,7 +937,7 @@ for the different hyperparameters in order to find out whether an
 improvement can be achieved. If the improvements achieved through these
 experiments are significant, further experiments should be considered.
 
-Similar to adding the `random_state`{.literal} argument to the
+Similar to adding the `random_state` argument to the
 initialization of the MLP, the change in the values of the number of
 iterations and the size of the network can be achieved using the
 following code, which shows the values for Experiment 3:
@@ -993,15 +958,15 @@ model = model.fit(X_train, Y_train)
 Note
 
 To find what term to use in order to change each hyperparameter, visit
-scikit-learn\'s `MLPClassifier`{.literal} page at
+scikit-learn\'s `MLPClassifier` page at
 <http://scikit-learn.org/stable/modules/generated/sklearn.neural_network.MLPClassifier.html>.
 
-As you can see in the preceding snippet, the `max_iter`{.literal}
+As you can see in the preceding snippet, the `max_iter`
 argument is used to set the number of iterations to run during the
-training of the network. The `hidden_layer_sizes`{.literal} argument is
+training of the network. The `hidden_layer_sizes` argument is
 used to both set the number of hidden layers and set the number of units
 in each. For instance, in the preceding example, by setting the argument
-to `(100,100,100)`{.literal}, the architecture of the network is of 3
+to `(100,100,100)`, the architecture of the network is of 3
 hidden layers, each with 100 units. Of course, this architecture also
 includes the required input and output layers.
 
@@ -1016,9 +981,9 @@ in the following table:
 
 <div>
 
-::: {#_idContainer095 .IMG---Figure}
+
 ![Figure 5.11: Accuracy scores for all experiments
-](5_files/B15781_05_11.jpg)
+](./images/B15781_05_11.jpg)
 :::
 
 </div>
@@ -1046,9 +1011,9 @@ the number of iterations and the number of hidden layers of Experiment
 
 <div>
 
-::: {#_idContainer096 .IMG---Figure}
+
 ![Figure 5.12: Suggested experiments to vary the width of the network
-](5_files/B15781_05_12.jpg)
+](./images/B15781_05_12.jpg)
 :::
 
 </div>
@@ -1060,9 +1025,9 @@ explanation of the logic behind them:
 
 <div>
 
-::: {#_idContainer097 .IMG---Figure}
+
 ![Figure 5.13: Accuracy scores for the second round of experiments
-](5_files/B15781_05_13.jpg)
+](./images/B15781_05_13.jpg)
 :::
 
 </div>
@@ -1098,9 +1063,9 @@ To access the source code for this specific section, please refer to
 This section does not currently have an online interactive example, and
 will need to be run locally.
 
-[]{#_idTextAnchor155}
 
-Model Comparison {#_idParaDest-150}
+
+Model Comparison
 ----------------
 
 When more than one model has been trained, the final step related to the
@@ -1127,9 +1092,9 @@ Taking this into account, the model with a superior performance on the
 testing set, after having improved all models to their fullest
 potential, will be the one that performs best on unseen data.
 
-[]{#_idTextAnchor156}
 
-Activity 5.02: Comparing Different Models to Choose the Best Fit for the Census Income Data Problem {#_idParaDest-151}
+
+Activity 5.02: Comparing Different Models to Choose the Best Fit for the Census Income Data Problem
 ---------------------------------------------------------------------------------------------------
 
 Consider the following scenario: after training four different models
@@ -1149,9 +1114,9 @@ Perform the following steps to compare the different models:
 2.  Compare the four models, based only on their accuracy scores. Fill
     in the details in the following table:
 
-    ::: {#_idContainer098 .IMG---Figure}
+
     ![Figure 5.14: Accuracy scores of all four models for the Census
-    Income Dataset ](5_files/B15781_05_14.jpg)
+    Income Dataset ](./images/B15781_05_14.jpg)
     :::
 
     Figure 5.14: Accuracy scores of all four models for the Census
@@ -1166,10 +1131,10 @@ Perform the following steps to compare the different models:
     link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec06/5-artificial-neural-networks-predicting-annual-income).
 
 
-Summary {#_idParaDest-152}
+Summary
 =======
 
-::: {#_idContainer099 .Content}
+
 This chapter mainly focused on ANNs (the MLP, in particular), which have
 become increasingly important in the field of machine learning due to
 their ability to tackle highly complex data problems that usually use
