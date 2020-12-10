@@ -21,17 +21,17 @@
 Labs for this course are available at endpoints shared below. Update `<host-ip>` with the lab environment DNS.
 
 1. ##### Introduction to Scikit-Learn
-		* http://<host-ip>/lab/workspaces/lab1_
+		* http://<host-ip>/lab/workspaces/lab1_ScikitLearn
 2. ##### Unsupervised Learning – Real-Life Applications
-		* http://<host-ip>/lab/workspaces/lab2_
+		* http://<host-ip>/lab/workspaces/lab2_Unsupervised
 3. ##### Supervised Learning – Key Steps
-		* http://<host-ip>/lab/workspaces/lab3_
+		* http://<host-ip>/lab/workspaces/lab3_Supervised
 4. ##### Supervised Learning Algorithms: Predicting Annual Income
-		* http://<host-ip>/lab/workspaces/lab4_
+		* http://<host-ip>/lab/workspaces/lab4_Algorithms
 5. ##### Supervised Learning – Key Steps
-		* http://<host-ip>/lab/workspaces/lab5_
+		* http://<host-ip>/lab/workspaces/lab5_Steps
 6. ##### Building Your Own Program
-		* http://<host-ip>/lab/workspaces/lab6_
+		* http://<host-ip>/lab/workspaces/lab6_Program
 
 
 ### About
