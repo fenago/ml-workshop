@@ -3,17 +3,15 @@
 ===================================
 
 
-:::
-
 
 Overview
 
-In this chapter, we will dive deep into the concept of neural networks
+In this lab, we will dive deep into the concept of neural networks
 and describe the processes of forward and backpropagation. We will solve
 a supervised learning classification problem using a neural network and
 analyze the results of the neural network by performing error analysis.
 
-By the end of this chapter, you will be able to train a network to solve
+By the end of this lab, you will be able to train a network to solve
 a classification problem and fine-tune some of the hyperparameters of
 the network to improve its performance.
 
@@ -22,9 +20,9 @@ Introduction
 ============
 
 
-In the preceding chapter, we explored three machine learning algorithms
+In the preceding lab, we explored three machine learning algorithms
 to solve supervised learning tasks, either for classification or
-regression. In this chapter, we will explore one of the most popular
+regression. In this lab, we will explore one of the most popular
 machine learning algorithms nowadays, artificial neural networks, which
 belong to a subgroup of machine learning called deep learning.
 
@@ -38,11 +36,11 @@ gathering of large amounts of data, as well as the developments in
 computer infrastructure that allow the training of complex algorithms
 with large amounts of data.
 
-Due to this, the following chapter will focus on introducing ANNs, their
+Due to this, the following lab will focus on introducing ANNs, their
 different types, and the advantages and disadvantages that they present.
 Additionally, an ANN will be used to predict the income of an individual
 based on demographic and financial information from the individual, as
-per the previous chapter, in order to present the differences in the
+per the previous lab, in order to present the differences in the
 performance of ANNs in comparison to the other supervised learning
 algorithms.
 
@@ -69,14 +67,9 @@ neurons, B refers to the **nucleus** of the neuron that processes the
 information, and C represents the **axon** that oversees the process of
 passing the processed information to the next neuron:
 
-<div>
 
+![Figure 5.1: Visual representation of a human neuron](./images/B15781_05_01.jpg)
 
-![Figure 5.1: Visual representation of a human neuron
-](./images/B15781_05_01.jpg)
-:::
-
-</div>
 
 Figure 5.1: Visual representation of a human neuron
 
@@ -124,39 +117,8 @@ layer, the ones under 2 represent the neurons of 2 hidden layers (each
 layer represented by a column of circles), and finally, the circles
 under 3 are the neurons of the output layer:
 
-<div>
-
 
 ![Figure 5.2: Basic architecture of an ANN ](./images/B15781_05_02.jpg)
-:::
-
-</div>
-
-Figure 5.2: Basic architecture of an ANN
-
-As an analogy, consider a manufacturing process for building car parts.
-Here, the input layer consists of the raw materials, which, in this
-case, may be aluminum. The initial steps of the process involve
-polishing and cleaning the material, which can be seen as the first
-couple of hidden layers. Next, the material is bent to achieve the shape
-of the car part, which is handled by the deeper hidden layers. Finally,
-the part is delivered to the client, which can be considered to be the
-output layer.
-
-Considering these steps, the main objective of the manufacturing process
-is to achieve a final part that highly resembles the part that the
-process aimed to build, meaning that the output, `Y_hat`,
-should maximize its similarity to `Y` (the ground truth) for a
-model to be considered a good fit to the data.
-
-The actual methodology to train an ANN is an iterative process comprised
-of the following steps: forward propagation, calculation of the cost
-function, backpropagation, and weights and biases updates. Once the
-weights and biases are updated, the process starts again until the
-number of iterations is met.
-
-Let\'s explore each of the steps of the iteration process in detail.
-
 
 
 ### Forward Propagation
@@ -168,37 +130,17 @@ network. The information is processed by each neuron in each layer using
 a linear function, coupled with an activation function that aims to
 break the linearity, as follows:
 
-<div>
 
+![Figure 5.3: The linear and activation functions used by an ANN](./images/B15781_05_03.jpg)
 
-![Figure 5.3: The linear and activation functions used by an ANN
-](./images/B15781_05_03.jpg)
-:::
-
-</div>
-
-Figure 5.3: The linear and activation functions used by an ANN
-
-Here, *W*[1]{.subscript} and *b*[1]{.subscript} are a matrix and a
-vector containing the weights and biases, respectively, and serve as the
-variables that can be updated through the iterations to train the model.
-*Z*[1]{.subscript} is the linear function for a given neuron, and
-*A*[1]{.subscript} is the outcome from the unit after applying an
-activation function (represented by the sigma symbol) to the linear one.
 
 The preceding two formulas are calculated for each neuron in each layer,
 where the value of *X* for the hidden layers (other than the input
-layer) is replaced by the output of the previous layer
-(*A*[n]{.subscript}), as follows:
-
-<div>
+layer) is replaced by the output of the previous layer, as follows:
 
 
-![Figure 5.4: The values calculated for the second layer of the ANN
-](./images/B15781_05_04.jpg)
-:::
+![Figure 5.4: The values calculated for the second layer of the ANN](./images/B15781_05_04.jpg)
 
-</div>
 
 Figure 5.4: The values calculated for the second layer of the ANN
 
@@ -243,30 +185,16 @@ values.
 For a binary classification task, that is, tasks with only two class
 output labels, the cross-entropy cost function is calculated as follows:
 
-::: {.informalexample}
-::: {.toolbar .clearfix}
-Copy
-:::
-
-``` {.language-markup}
+```
 cost = -(y * log(yhat) + (1-y) *(1-yhat))
 ```
-:::
 
-Here, *y* would be either 1 or 0 (either of the two class labels),
-*y*[hat]{.subscript} would be the probability calculated by the model,
-and *log* would be the natural logarithm.
 
 For a multiclass classification task, the formula is as follows:
 
-<div>
 
+![Figure 5.5: The cost function for a multiclass classification task](./images/B15781_05_05.jpg)
 
-![Figure 5.5: The cost function for a multiclass classification task
-](./images/B15781_05_05.jpg)
-:::
-
-</div>
 
 Figure 5.5: The cost function for a multiclass classification task
 
@@ -278,7 +206,7 @@ perform the backpropagation step, which will be explained in the
 following section.
 
 Moreover, for regression tasks, the cost function would be the RMSE,
-which was explained in *Chapter 3*, *Supervised Learning -- Key Steps*.
+which was explained in *Lab 3*, *Supervised Learning -- Key Steps*.
 
 
 
@@ -310,14 +238,9 @@ backpropagation is to determine the direction in which the weights and
 biases should be updated, so that the error can continue to be minimized
 until it reaches a minimum point:
 
-<div>
 
+![Figure 5.6: Example of the iterative process of training an ANN](./images/B15781_05_06.jpg)
 
-![Figure 5.6: Example of the iterative process of training an ANN
-](./images/B15781_05_06.jpg)
-:::
-
-</div>
 
 Figure 5.6: Example of the iterative process of training an ANN
 
@@ -326,13 +249,9 @@ the global minima, since it stops updating once it has reached the
 lowest point in a slope, regardless of any other regions. For instance,
 consider the following diagram:
 
-<div>
-
 
 ![Figure 5.7: Examples of minimum points ](./images/B15781_05_07.jpg)
-:::
 
-</div>
 
 Figure 5.7: Examples of minimum points
 
@@ -349,16 +268,10 @@ backpropagation, the final step of an iteration is to update the values
 of the weights and biases. This process is done using the following
 formula for updating weights and biases:
 
-::: {.informalexample}
-::: {.toolbar .clearfix}
-Copy
-:::
-
-``` {.language-markup}
+```
 New weight = old weight – derivative rate * learning rate
 New bias = old bias – derivative rate * learning rate
 ```
-:::
 
 Here, the old values are those used to perform the forward propagation
 step, the derivative rate is the value obtained from the backpropagation
@@ -603,7 +516,7 @@ steps that it follows to train a model and make predictions, let\'s
 train a simple network using the scikit-learn library.
 
 In this topic, scikit-learn\'s neural network module will be used to
-train a network using the datasets used in the previous chapter\'s
+train a network using the datasets used in the previous lab\'s
 exercises and activities (that is, the Fertility Dataset and the
 Processed Census Income Dataset). It is important to mention that
 scikit-learn is not the most appropriate library for neural networks, as
@@ -649,7 +562,7 @@ first, the `X` input of dimensions (`n_samples`,
 `Y` input of dimensions (`n_sample`) that contains
 the label values for each sample.
 
-Similar to the algorithms that we looked at in the previous chapter, the
+Similar to the algorithms that we looked at in the previous lab, the
 model is trained using the `fit` method, and then predictions
 can be obtained by using the `predict` method on the trained
 model.
@@ -666,7 +579,7 @@ environmental conditions, and their previous medical conditions.
 
 Note
 
-For the exercises and activities within this chapter, you will need to
+For the exercises and activities within this lab, you will need to
 have Python 3.7, NumPy, Jupyter, pandas, and scikit-learn installed on
 your system.
 
@@ -679,9 +592,8 @@ your system.
     from sklearn.neural_network import MLPClassifier
     from sklearn.metrics import accuracy_score
     ```
-    :::
 
-2.  Using the Fertility Dataset from the previous chapter, read the
+2.  Using the Fertility Dataset from the previous lab, read the
     `.csv` file. Make sure that you add the `header`
     argument equal to `None` to the `read_csv`
     function, considering that the dataset does not contain a header
@@ -689,7 +601,6 @@ your system.
     ```
     data = pd.read_csv("fertility_Diagnosis.csv", header=None)
     ```
-    :::
 
 3.  Split the dataset into `X` and `Y` sets in order
     to separate the features data from the label values:
@@ -697,7 +608,6 @@ your system.
     X = data.iloc[:,:9]
     Y = data.iloc[:,9]
     ```
-    :::
 
 4.  Instantiate the `MLPClassifier` class from the
     `neural_network` module of scikit-learn and use the
@@ -711,15 +621,12 @@ your system.
     model = MLPClassifier(random_state=101)
     model = model.fit(X, Y)
     ```
-    :::
 
     Address the warning that appears after running the `fit`
     method:
 
 
-    ![Figure 5.8: Warning message displayed after running the fit method
-    ](./images/B15781_05_08.jpg)
-    :::
+    ![Figure 5.8: Warning message displayed after running the fit method](./images/B15781_05_08.jpg)
 
     Figure 5.8: Warning message displayed after running the fit method
 
@@ -736,7 +643,6 @@ your system.
     model = MLPClassifier(random_state=101, max_iter =1200)
     model = model.fit(X, Y)
     ```
-    :::
 
     Furthermore, the output beneath the warning explains the values used
     for all of the hyperparameters of the MLP.
@@ -753,7 +659,6 @@ your system.
     pred = model.predict([[-0.33,0.69,0,1,1,0,0.8,0,0.88]])
     print(pred)
     ```
-    :::
 
     The model\'s prediction is equal to `N`, that is, the
     model predicts the person with the specified features to have a
@@ -767,21 +672,9 @@ your system.
     score = accuracy_score(Y, pred)
     print(score)
     ```
-    :::
 
     The accuracy of your model is equal to `98%`.
 
-    Note
-
-    To access the source code for this specific section, please refer to
-    <https://packt.live/2BaKHRe>.
-
-    You can also run this example online at
-    <https://packt.live/37tTxpv>. You must execute the entire Notebook
-    in order to get the desired result.
-
-You have successfully trained and evaluated the performance of an MLP
-model.
 
 
 
@@ -789,7 +682,7 @@ Activity 5.01: Training an MLP for Our Census Income Dataset
 ------------------------------------------------------------
 
 With the objective of comparing the performance of the algorithms
-trained in the previous chapter with the performance of a neural
+trained in the previous lab with the performance of a neural
 network, for this activity, we will continue to work with the
 Preprocessed Census Income Dataset. Consider the following scenario:
 your company is continually offering a course for employees to improve
@@ -798,13 +691,6 @@ their power. You have decided to build a network to model the dataset
 that you were given previously in order to test whether a neural network
 is better at predicting a person\'s income based on their demographic
 data.
-
-Note
-
-Start this activity using the preprocessed dataset from the previous
-chapter: `census_income_dataset_preprocessed.csv`. You can
-also find the preprocessed dataset on this book\'s GitHub repository at
-<https://packt.live/2UQIthA>.
 
 Perform the following steps to complete this activity:
 
@@ -822,7 +708,7 @@ Perform the following steps to complete this activity:
 
     Remember to continue using a `random_state` argument equal
     to `101` when performing the dataset split in order to set
-    a seed to arrive at the same results as the ones in this book.
+    a seed to arrive at the same results as the ones in this course.
 
 4.  Instantiate the `MLPClassifier` class from scikit-learn
     and train the model with the training data.
@@ -833,36 +719,10 @@ Perform the following steps to complete this activity:
     Although a warning will appear specifying that, with the given
     iterations, no convergence was reached, leave the warning
     unaddressed, since hyperparameter fine-tuning will be explored in
-    the following sections of this chapter.
+    the following sections of this lab.
 
 5.  Calculate the accuracy of the model for all three sets (training,
     validation, and testing).
-
-    Note
-
-    The solution for this activity can be found via [this
-    link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec06/5-artificial-neural-networks-predicting-annual-income).
-
-    The accuracy score for the three sets should be as follows:
-
-    Train sets = 0.8465
-
-    Dev sets = 0.8246
-
-    Test sets = 0.8415
-
-
-Performance Analysis
-====================
-
-
-In the following section, we will first perform error analysis using the
-accuracy metric as a tool to determine the condition that is affecting
-(in greater proportion) the performance of the algorithm. Once the model
-is diagnosed, the hyperparameters can be tuned to improve the overall
-performance of the algorithm. The final model will be compared to those
-that were created during the previous chapter in order to determine
-whether a neural network outperforms the other models.
 
 
 
@@ -874,33 +734,10 @@ for Our Census Income Dataset*, we can calculate the error rates for
 each of the sets and compare them against one another to diagnose the
 condition that is affecting the model. To do so, a Bayes error equal to
 1% will be assumed, considering that other models in the previous
-chapter were able to achieve an accuracy level of over 97%:
-
-<div>
+lab were able to achieve an accuracy level of over 97%:
 
 
-![Figure 5.9: Accuracy score and error rate of the network
-](./images/B15781_05_09.jpg)
-:::
-
-</div>
-
-Figure 5.9: Accuracy score and error rate of the network
-
-Note
-
-Considering *Figure 5.9*, remember that in order to detect the condition
-that is affecting the network, it is necessary to take an error rate
-and, from that, subtract the value of the error rate above it. The
-biggest positive difference is the one that we use to diagnose the
-model.
-
-According to the column of differences, it is evident that the biggest
-difference is found between the error rate in the training set and the
-Bayes error. Based on this, it is possible to conclude that the model is
-suffering from *high bias*, which, as explained in previous chapters,
-can be handled by training a bigger network and/or training for longer
-periods of time (a higher number of iterations).
+![Figure 5.9: Accuracy score and error rate of the network](./images/B15781_05_09.jpg)
 
 
 
@@ -916,44 +753,21 @@ Considering that both the number of iterations and the size of the
 network (number of layers and units) should be changed using a
 trial-and-error approach, the following experiments will be performed:
 
-<div>
 
+![Figure 5.10: Suggested experiments to tune the hyperparameters](./images/B15781_05_10.jpg)
 
-![Figure 5.10: Suggested experiments to tune the hyperparameters
-](./images/B15781_05_10.jpg)
-:::
-
-</div>
-
-Figure 5.10: Suggested experiments to tune the hyperparameters
-
-Note
-
-Some experiments may take longer to run due to their complexity. For
-instance, Experiment 3 will take longer than Experiment 2.
-
-The idea behind these experiments is to be able to test different values
-for the different hyperparameters in order to find out whether an
-improvement can be achieved. If the improvements achieved through these
-experiments are significant, further experiments should be considered.
 
 Similar to adding the `random_state` argument to the
 initialization of the MLP, the change in the values of the number of
 iterations and the size of the network can be achieved using the
 following code, which shows the values for Experiment 3:
 
-::: {.informalexample}
-::: {.toolbar .clearfix}
-Copy
-:::
-
-``` {.language-markup}
+```
 from sklearn.neural_network import MLPClassifier
 model = MLPClassifier(random_state=101, max_iter = 500, \
                       hidden_layer_sizes=(100,100,100))
 model = model.fit(X_train, Y_train)
 ```
-:::
 
 Note
 
@@ -979,60 +793,25 @@ for the configurations of Experiment 1 and 2.
 The accuracy scores from running the preceding experiments can be seen
 in the following table:
 
-<div>
 
+![Figure 5.11: Accuracy scores for all experiments](./images/B15781_05_11.jpg)
 
-![Figure 5.11: Accuracy scores for all experiments
-](./images/B15781_05_11.jpg)
-:::
-
-</div>
-
-Figure 5.11: Accuracy scores for all experiments
-
-Note
-
-Keep in mind that the main purpose behind tuning the hyperparameters is
-to decrease the difference between the error rate of the training set
-and the Bayes error, which is why most of the analysis is done by
-considering only this value.
-
-Through an analysis of the accuracy scores of the experiments, it can be
-concluded that the best configuration of hyperparameters is the one used
-during Experiment 2. Additionally, it is possible to conclude that there
-is most likely no point in trying other values for the number of
-iterations, considering that increasing the number of iterations did not
-have a positive effect on the performance of the algorithm.
 
 Nonetheless, in order to test the width of the hidden layers, the
 following experiments will be considered, using the selected values for
 the number of iterations and the number of hidden layers of Experiment
 2, but varying the number of units in each layer:
 
-<div>
 
+![Figure 5.12: Suggested experiments to vary the width of the network](./images/B15781_05_12.jpg)
 
-![Figure 5.12: Suggested experiments to vary the width of the network
-](./images/B15781_05_12.jpg)
-:::
-
-</div>
-
-Figure 5.12: Suggested experiments to vary the width of the network
 
 The accuracy score of the two experiments is shown, followed by an
 explanation of the logic behind them:
 
-<div>
 
+![Figure 5.13: Accuracy scores for the second round of experiments](./images/B15781_05_13.jpg)
 
-![Figure 5.13: Accuracy scores for the second round of experiments
-](./images/B15781_05_13.jpg)
-:::
-
-</div>
-
-Figure 5.13: Accuracy scores for the second round of experiments
 
 It can be seen that the accuracy for both experiments decreases for all
 sets of data, in comparison to the initial model. By observing these
@@ -1040,28 +819,6 @@ values, it can be concluded that the performance of Experiment 2 is the
 highest in terms of testing sets, which leaves us with a network that
 iterates for 500 steps, with one input and output layer and two hidden
 layers with 100 units each.
-
-Note
-
-There is no ideal way to test the different configurations of
-hyperparameters. The only important thing to consider is that the focus
-is centered on those hyperparameters that solve the condition that is
-affecting the network in a greater proportion. Feel free to try more
-experiments if you wish.
-
-Considering the accuracy scores of all three sets of Experiment 2 to
-calculate the error rate, the biggest difference is still between the
-training set error and the Bayes error. This means that the model may
-not be the best fit for the dataset, considering that the training set
-error could not be brought closer to the minimum possible error margin.
-
-Note
-
-To access the source code for this specific section, please refer to
-<https://packt.live/3e2O8bS>.
-
-This section does not currently have an online interactive example, and
-will need to be run locally.
 
 
 
@@ -1104,8 +861,8 @@ choose the model that best suits the case study.
 Note
 
 The following activity is mainly analytical. Use the results obtained
-from the activities in the previous chapter, as well as the activity in
-the current chapter.
+from the activities in the previous lab, as well as the activity in
+the current lab.
 
 Perform the following steps to compare the different models:
 
@@ -1117,7 +874,6 @@ Perform the following steps to compare the different models:
 
     ![Figure 5.14: Accuracy scores of all four models for the Census
     Income Dataset ](./images/B15781_05_14.jpg)
-    :::
 
     Figure 5.14: Accuracy scores of all four models for the Census
     Income Dataset
@@ -1125,43 +881,16 @@ Perform the following steps to compare the different models:
 3.  On the basis of the accuracy scores, identify the model with the
     best performance.
 
-    Note
 
-    The solution for this activity can be found via [this
-    link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec06/5-artificial-neural-networks-predicting-annual-income).
+#### Summary
 
-
-Summary
-=======
-
-
-This chapter mainly focused on ANNs (the MLP, in particular), which have
+This lab mainly focused on ANNs (the MLP, in particular), which have
 become increasingly important in the field of machine learning due to
 their ability to tackle highly complex data problems that usually use
 extremely large datasets with patterns that are impossible to see with
 the human eye.
 
-The main objective is to emulate the architecture of the human brain by
-using mathematical functions to process data. The process that is used
-to train an ANN consists of a forward propagation step, the calculation
-of a cost function, a backpropagation step, and the updating of the
-different weights and biases that help to map the input values to an
-output.
-
-In addition to the variables of the weights and biases, ANNs have
-multiple hyperparameters that can be tuned to improve the performance of
-the network, which can be done by modifying the architecture or training
-process of the algorithm. Some of the most popular hyperparameters are
-the size of the network (in terms of hidden layers and units), the
-number of iterations, the regularization term, the batch size, and the
-learning rate.
-
-Once these concepts were covered, we created a simple network to tackle
-the Census Income Dataset problem that was introduced in the previous
-chapter. Next, by performing error analysis, we fine-tuned some of the
-hyperparameters of the network to improve its performance.
-
-In the next chapter, we will learn how to develop an end-to-end machine
+In the next lab, we will learn how to develop an end-to-end machine
 learning solution, starting from the understanding of the data and
 training of the model, as seen thus far, and ending with the process of
 saving a trained model in order to be able to make future use of it.

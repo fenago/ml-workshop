@@ -3,17 +3,15 @@
 ============================
 
 
-:::
-
 
 Overview
 
-In this chapter, we will present all the steps required to solve a
+In this lab, we will present all the steps required to solve a
 problem using machine learning. We will take a look at the key stages
 involved in building a comprehensive program. We will save a model in
 order to get the same results every time it is run and call a saved
 model to use it for predictions on unseen data. By the end of this
-chapter, you will be able to create an interactive version of your
+lab, you will be able to create an interactive version of your
 program so that anyone can use it effectively.
 
 
@@ -21,13 +19,13 @@ Introduction
 ============
 
 
-In the previous chapters, we covered the main concepts of machine
+In the previous labs, we covered the main concepts of machine
 learning, beginning with the distinction between the two main learning
 approaches (supervised and unsupervised learning), and then moved on to
 the specifics of some of the most popular algorithms in the data science
 community.
 
-This chapter will talk about the importance of building complete machine
+This lab will talk about the importance of building complete machine
 learning programs, rather than just training models. This will involve
 taking the models to the next level, where they can be accessed and used
 easily.
@@ -79,7 +77,7 @@ Preparation consists of all the procedures that we have developed thus
 far, with the objective of outlining the project in alignment with the
 available information and the desired outcome. The following is a brief
 description of the three processes in this stage (these have been
-discussed in detail in previous chapters):
+discussed in detail in previous labs):
 
 1.  **Data Exploration**: Once the objective of the study has been
     established, data exploration is undertaken in order to understand
@@ -163,36 +161,31 @@ users can interact with the model:
     of saving the model is highly important, considering that most
     algorithms are randomly initialized each time they are run, which
     makes the results different for each run. The process of saving the
-    model will be explained further later in this chapter.
+    model will be explained further later in this lab.
 2.  **Loading the Model**: Once the model has been saved in a file, it
     can be accessed by loading the file into any code. The model is then
     stored in a variable that can be used to apply the
     `predict` method on unseen data. This process will also be
-    explained later in this chapter.
+    explained later in this lab.
 3.  **Channel of Interaction**: Finally, it is crucial to develop an
     interactive and easy way to perform predictions using the saved
     model, especially because, on many occasions, models are created by
     the technology team for other teams to use. This means that an ideal
     program should allow non-experts to use the model for predicting by
     simply typing in the input data. This idea will also be expanded
-    upon later in this chapter.
+    upon later in this lab.
 
 The following diagram illustrates the preceding stages:
 
-<div>
 
+![Figure 6.1: Stages for building a machine learning program](./images/B15781_06_01.jpg)
 
-![Figure 6.1: Stages for building a machine learning program
-](./images/B15781_06_01.jpg)
-:::
-
-</div>
 
 Figure 6.1: Stages for building a machine learning program
 
-The rest of this chapter will focus on the final stage of building a
+The rest of this lab will focus on the final stage of building a
 model (the interaction), considering that all the previous steps were
-discussed in previous chapters.
+discussed in previous labs.
 
 
 
@@ -206,21 +199,8 @@ target its promotion efforts. A term deposit is money that is deposited
 into a banking institution that cannot be withdrawn for a specific
 period of time.
 
-The dataset that was used to build this program is available in the UC
-Irvine Machine Learning Repository under the name **Bank Marketing
-Dataset**.
+The dataset that was used to build this program is available in the UC Irvine Machine Learning Repository under the name **Bank Marketing Dataset**.
 
-Note
-
-To download this dataset, visit the following link:
-<http://archive.ics.uci.edu/ml/datasets/Bank+Marketing>.
-
-The dataset is also available in this book\'s GitHub repository:
-<https://packt.live/2wnJyny>.
-
-Citation: \[Moro et al., 2014\] S. Moro, P. Cortez and P. Rita*. A
-Data-Driven Approach to Predict the Success of Bank Telemarketing.*
-Decision Support Systems, Elsevier, 62:22-31, June 2014.
 
 Once you have accessed the link of the UC Irvine Machine Learning
 repository, follow these steps to download the dataset:
@@ -243,7 +223,6 @@ repository, follow these steps to download the dataset:
     import pandas as pd
     import numpy as np
     ```
-    :::
 
 5.  As we have learned thus far, the dataset can be loaded into a
     Jupyter Notebook using Pandas:
@@ -252,7 +231,6 @@ repository, follow these steps to download the dataset:
     data = pd.read_csv("bank-full.csv")
     data.head()
     ```
-    :::
 
     The preceding code reads all the features for one instance in a
     single column, since the `read_csv` function uses commas
@@ -271,7 +249,6 @@ repository, follow these steps to download the dataset:
 
     ![Figure 6.2: Screenshot of the data in the .csv file before
     splitting the data into columns ](./images/B15781_06_02.jpg)
-    :::
 
     Figure 6.2: Screenshot of the data in the .csv file before splitting
     the data into columns
@@ -284,14 +261,12 @@ repository, follow these steps to download the dataset:
     data = pd.read_csv("bank-full.csv", delimiter = ";")
     data.head()
     ```
-    :::
 
     After this step, the data should look as follows:
 
 
     ![Figure 6.3: Screenshot of the data in the .csv file after
     splitting it into columns ](./images/B15781_06_03.jpg)
-    :::
 
     Figure 6.3: Screenshot of the data in the .csv file after splitting
     it into columns
@@ -307,7 +282,6 @@ repository, follow these steps to download the dataset:
     data = data.replace("unknown", np.NaN)
     data.head()
     ```
-    :::
 
     By printing the head of the `data` variable, the output of
     the preceding code snippet is as follows:
@@ -315,7 +289,6 @@ repository, follow these steps to download the dataset:
 
     ![Figure 6.4: Screenshot of the data in the .csv file after
     replacing unknown values ](./images/B15781_06_04.jpg)
-    :::
 
     Figure 6.4: Screenshot of the data in the .csv file after replacing
     unknown values
@@ -324,23 +297,14 @@ repository, follow these steps to download the dataset:
     pre-processing of the dataset.
 
 7.  Finally, the edited dataset is saved in a new `.csv` file
-    so that it can be used for the activities throughout this chapter.
+    so that it can be used for the activities throughout this lab.
     You can do this by using the `to_csv` function, as
     follows:
 
     ```
     data.to_csv("bank-full-dataset.csv")
     ```
-    :::
 
-    Note
-
-    To access the source code for this specific section, please refer to
-    <https://packt.live/2AAX2ym>.
-
-    You can also run this example online at
-    <https://packt.live/3ftYXnf>. You must execute the entire Notebook
-    in order to get the desired result.
 
 The file should contain a total of 45,211 instances, each with 16
 features and one class label, which can be verified by printing the
@@ -358,21 +322,14 @@ will help you determine the relevance of each feature to the study, and
 will provide an idea of some of the steps required to pre-process the
 data:
 
-<div>
 
+![Figure 6.5: A table describing the features of the dataset](./images/B15781_06_05.jpg)
 
-![Figure 6.5: A table describing the features of the dataset
-](./images/B15781_06_05.jpg)
-:::
-
-</div>
-
-Figure 6.5: A table describing the features of the dataset
 
 Note
 
-You can find the preceding descriptions and more in this book\'s GitHub
-repository, in the folder named `Chapter06`. The file for the
+You can find the preceding descriptions and more in this course\'s GitHub
+repository, in the folder named `Lab06`. The file for the
 preceding example is named `bank-names.txt` and can be found
 in the `.zip` folder called `bank.zip`.
 
@@ -389,39 +346,20 @@ The objective of this activity is to perform the processes in the
 *preparation* and *creation* stages to build a comprehensive machine
 learning problem.
 
-Note
-
-For the exercises and activities within this chapter, you will need to
-have Python 3.7, NumPy, Jupyter, Pandas, and scikit-learn installed on
-your system.
-
-Let\'s consider the following scenario: you work at the principal bank
-in your town, and the marketing team has decided that they want to know
-in advance if a client is likely to subscribe to a term deposit so that
-they can focus their efforts on targeting those clients.
-
-For this, you have been provided with a dataset containing the details
-of current and previous marketing activities carried out by the team
-(the Bank Marketing Dataset that you have downloaded and explored). You
-have been asked to pre-process the dataset and compare two models so
-that you can select the best one.
-
-Follow these steps to achieve this:
 
 Note
 
-For a reminder of how to pre-process your dataset, revisit *Chapter 1*,
+For a reminder of how to pre-process your dataset, revisit *Lab 1*,
 *Introduction to Scikit-Learn*. On the other hand, for a reminder of how
 to train a supervised model, evaluate performance, and perform error
-analysis, revisit *Chapter 3*, *Supervised Learning -- Key Steps*, and
-*Chapter 4*, *Supervised Learning Algorithms: Predicting Annual Income*.
+analysis, revisit *Lab 3*, *Supervised Learning -- Key Steps*, and
+*Lab 4*, *Supervised Learning Algorithms: Predicting Annual Income*.
 
 1.  Open a Jupyter Notebook to implement this activity and import all
     the required elements.
 
 2.  Load the dataset into the notebook. Make sure that you load the one
-    that was edited previously, named `bank-full-dataset.csv`,
-    which is also available at <https://packt.live/2wnJyny>.
+    that was edited previously, named `bank-full-dataset.csv`.
 
 3.  Select the metric that is the most appropriate for measuring the
     performance of the model, considering that the purpose of the study
@@ -442,7 +380,6 @@ analysis, revisit *Chapter 3*, *Supervised Learning -- Key Steps*, and
                             str.replace(word,str(i))
         data["education"] = data["education"].astype("int64")
     ```
-    :::
 
 5.  Separate the features from the class label and split the dataset
     into three sets (training, validation, and testing).
@@ -455,7 +392,7 @@ analysis, revisit *Chapter 3*, *Supervised Learning -- Key Steps*, and
     Note
 
     You can also try this with the other classification algorithms we
-    discussed in this book. However, these two have been chosen so that
+    discussed in this course. However, these two have been chosen so that
     you are also able to compare the difference in training times.
 
 8.  Evaluate both models by using the metric that you selected
@@ -469,20 +406,8 @@ analysis, revisit *Chapter 3*, *Supervised Learning -- Key Steps*, and
 
 Expected output:
 
-<div>
-
 
 ![Figure 6.6: Expected output ](./images/B15781_06_06.jpg)
-:::
-
-</div>
-
-Figure 6.6: Expected output
-
-Note
-
-The solution for this activity can be found via [this
-link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec07/6-building-your-own-program).
 
 
 Saving and Loading a Trained Model
@@ -542,14 +467,10 @@ Exercise 6.01: Saving a Trained Model
 -------------------------------------
 
 For the following exercise, we will use the Fertility Dataset that we
-downloaded in *Chapter 5*, *Artificial Neural Networks: Predicting
+downloaded in *Lab 5*, *Artificial Neural Networks: Predicting
 Annual Income*. A neural network will be trained over the training data,
 and then saved. Follow these steps to complete this exercise:
 
-Note
-
-The dataset is also available in this book\'s GitHub repository:
-<https://packt.live/2zBW84e>.
 
 1.  Open a Jupyter Notebook to implement this exercise and import all
     the required elements to load a dataset, train a multilayer
@@ -561,7 +482,6 @@ The dataset is also available in this book\'s GitHub repository:
     import pickle
     import os
     ```
-    :::
 
     The `pickle` module, as explained previously, will be used
     to save the trained model. The `os` module is used to
@@ -577,7 +497,6 @@ The dataset is also available in this book\'s GitHub repository:
     X = data.iloc[:,:9]
     Y = data.iloc[:,9]
     ```
-    :::
 
 3.  Train a multilayer perceptron classifier over the data. Set the
     number of iterations to `1200` to avoid getting a warning
@@ -588,7 +507,6 @@ The dataset is also available in this book\'s GitHub repository:
     model = MLPClassifier(max_iter = 1200)
     model.fit(X,Y)
     ```
-    :::
 
     Note
 
@@ -604,7 +522,6 @@ The dataset is also available in this book\'s GitHub repository:
     file = open(path, "wb")
     pickle.dump(model, file)
     ```
-    :::
 
     In the preceding snippet, the `path` variable contains the
     path to the file that will hold the serialized model, where the
@@ -618,41 +535,6 @@ The dataset is also available in this book\'s GitHub repository:
     module. It takes the model that was created previously, serializes
     it, and then saves it.
 
-    Note
-
-    To access the source code for this specific section, please refer to
-    <https://packt.live/3e18vWw>.
-
-    You can also run this example online at
-    <https://packt.live/2B7NJpC>. You must execute the entire Notebook
-    in order to get the desired result.
-
-You have successfully saved a trained model. In the next section, we
-will be looking at loading a saved model.
-
-
-
-Loading a Model
----------------
-
-The process of loading a model is also known as **deserialization**, and
-it consists of taking the previously saved file, deserializing it, and
-then loading it into code or Terminal so that you can use the model on
-new data. The `pickle` module is also used to load the model.
-
-It is worth mentioning that the model does not need to be loaded in the
-same code file where it was trained and saved; on the contrary, it is
-meant to be loaded in any other file. This is mainly because the
-`load` method of the `pickle` library will return
-the model in a variable that will be used to apply the
-`predict` method.
-
-When loading a model, it is important to not only import the
-`pickle` and `os` modules like we did before, but
-also the class of the algorithm that is used to train the model. For
-instance, to load a neural network model, it is necessary to import the
-`MLPClassifier` class, from the `neural_network`
-module of scikit-learn.
 
 
 
@@ -673,7 +555,6 @@ perform a prediction. Follow these steps to complete this exercise:
     import os
     from sklearn.neural_network import MLPClassifier
     ```
-    :::
 
     The `pickle` module, as explained previously, will be used
     to load the trained model. The `os` module is used to
@@ -687,7 +568,6 @@ perform a prediction. Follow these steps to complete this exercise:
     file = open(path, "rb")
     model = pickle.load(file)
     ```
-    :::
 
     Here, the `path` variable is used to store the path to the
     file containing the saved model. Next, the `file` variable
@@ -708,7 +588,6 @@ perform a prediction. Follow these steps to complete this exercise:
     pred = model.predict([[-0.33,0.67,1,1,0,0,0.8,-1,0.5]])
     print(pred)
     ```
-    :::
 
     By printing the `pred` variable, we get the value of the
     prediction to be equal to `O`, which means that the
@@ -717,17 +596,8 @@ perform a prediction. Follow these steps to complete this exercise:
     ```
     ['O']
     ```
-    :::
 
 You have successfully loaded a saved model.
-
-Note
-
-To access the source code for this specific section, please refer to
-<https://packt.live/2MXyGS7>.
-
-You can also run this example online at <https://packt.live/3dYgVxL>.
-You must execute the entire Notebook in order to get the desired result.
 
 
 
@@ -741,9 +611,7 @@ different results each time. For this purpose, you need to save and load
 the model that you created in *Activity 6.01*, *Performing the
 Preparation and Creation Stages for the Bank Marketing Dataset*.
 
-Note
-
-The following activity will be divided into two parts.
+Note: The following activity will be divided into two parts.
 
 The first part carries out the process of saving the model and will be
 performed using the same Jupyter Notebook from *Activity 6.01*,
@@ -768,7 +636,7 @@ Follow these steps to complete this activity:
 
     Note
 
-    The results obtained in this book use a `random_state` of
+    The results obtained in this course use a `random_state` of
     `2`.
 
 3.  Save the model that you choose as the best performing one in a file
@@ -795,12 +663,6 @@ Follow these steps to complete this activity:
     ```
     [0] 
     ```
-    :::
-
-    Note
-
-    The solution for this activity can be found via [this
-    link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec07/6-building-your-own-program).
 
 
 Interacting with a Trained Model
@@ -838,18 +700,8 @@ perform a classification. The output from the classification is sent
 back to the intermediary, which passes it along the channel in order to
 be displayed:
 
-<div>
 
-
-![Figure 6.7: Illustration of the interaction between the user and the
-model ](./images/B15781_06_07.jpg)
-:::
-
-</div>
-
-Figure 6.7: Illustration of the interaction between the user and the
-model
-
+![](./images/B15781_06_07.jpg)
 
 
 Exercise 6.03: Creating a Class and a Channel to Interact with a Trained Model
@@ -871,13 +723,11 @@ To create a class in a text editor, follow these steps:
     import pickle
     import os
     ```
-    :::
 
 3.  Create a class object and name it `NN_Model`:
     ```
     Class NN_Model(object):
     ```
-    :::
 
 4.  Inside of the class, create an initializer method that loads the
     file containing the saved model (`model_exercise.pkl`)
@@ -889,7 +739,6 @@ To create a class in a text editor, follow these steps:
         file = open(path, "rb")
         self.model = pickle.load(file)
     ```
-    :::
 
     Note
 
@@ -913,7 +762,6 @@ To create a class in a text editor, follow these steps:
               fevers, alcohol, smoking, sitting]]
         return self.model.predict(X)
     ```
-    :::
 
     Note
 
@@ -940,7 +788,6 @@ To create a class in a text editor, follow these steps:
     ```
     from exerciseClass import NN_Model
     ```
-    :::
 
 9.  Initialize the `NN_Model` class and store it in a variable
     called `model`:
@@ -948,7 +795,6 @@ To create a class in a text editor, follow these steps:
     ```
     model = NN_Model()
     ```
-    :::
 
     By making a call to the class that was saved in the Python file, the
     initializer method is automatically triggered, which loads the saved
@@ -975,7 +821,6 @@ To create a class in a text editor, follow these steps:
     h = -1     # smoking habit
     i = 0.63   # number of hours spent sitting per day
     ```
-    :::
 
 11. Perform a prediction by using the `predict` method over
     the `model` variable. Input the feature values as
@@ -988,28 +833,14 @@ To create a class in a text editor, follow these steps:
                          alcohol=g, smoking=h, sitting=i)
     print(pred)
     ```
-    :::
 
 12. By printing the prediction, we get the following output:
 
     ```
     ['N']
     ```
-    :::
 
     This means that the individual has a normal diagnosis.
-
-    Note
-
-    To access the source code for this specific section, please refer to
-    <https://packt.live/2MZPjg0>.
-
-    You can also run this example online at
-    <https://packt.live/3e4tQOC>. You must execute the entire Notebook
-    in order to get the desired result.
-
-You have successfully created a function and a channel to interact with
-your model.
 
 
 
@@ -1024,12 +855,6 @@ be asking you to launch the program in a more effective way. Hence, you
 have decided to share a Jupyter Notebook with your boss, where he can
 just input the information and get a prediction.
 
-Note
-
-The following activity will be developed in two parts. The first part
-will involve building the class that connects the channel and the model,
-which will be developed using a text editor. The second part will be the
-creation of the channel, which will be done in a Jupyter Notebook.
 
 Follow these steps to complete this activity:
 
@@ -1049,19 +874,12 @@ Follow these steps to complete this activity:
 Expected output: You will get `0` as the output when you
 complete this activity.
 
-Note
 
-The solution for this activity can be found via [this
-link](https://subscription.packtpub.com/book/data/9781839219061/app/applvl1sec07/6-building-your-own-program).
+#### Summary
 
-
-Summary
-=======
-
-
-This chapter wraps up all of the concepts and techniques that are
+This lab wraps up all of the concepts and techniques that are
 required to successfully train a machine learning model based on
-training data. In this chapter, we introduced the idea of building a
+training data. In this lab, we introduced the idea of building a
 comprehensive machine learning program that not only accounts for the
 stages involved in the preparation of the dataset and creation of the
 ideal model, but also the stage related to making the model accessible
@@ -1069,29 +887,3 @@ for future use, which is accomplished by carrying out three main
 processes: saving the model, loading the model, and creating a channel
 that allows users to easily interact with the model and obtain an
 outcome.
-
-For saving and loading a model, the `pickle` module was
-introduced. This module is capable of serializing the model to save it
-in a file, while also being capable of deserializing it to make use of
-the model in the future.
-
-Furthermore, to make the model accessible to users, the ideal channel
-(for example, an API, an application, a website, or a form) needs to be
-selected according to the type of user that will interact with the
-model. Then, an intermediary needs to be programmed that can connect the
-channel with the model. This intermediary is usually in the form of a
-function or a class.
-
-The main objective of this book was to introduce scikit-learn\'s library
-as a way to develop machine learning solutions in a simple manner. After
-discussing the importance of and the different techniques involved in
-data exploration and pre-processing, this book divided its knowledge
-into the two main areas of machine learning, that is, supervised and
-unsupervised learning. The most common algorithms were discussed.
-
-Finally, we explained the importance of measuring the performance of
-models by performing error analysis in order to improve the overall
-performance of the model on unseen data, and, ultimately, choosing the
-model that best represents the data. This final model should be saved so
-that you can use it in the future for visualizations or to perform
-predictions.
