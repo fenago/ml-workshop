@@ -16,216 +16,14 @@ this lab, you will have a firm understanding of how to split a
 dataset, measure a model\'s performance, and perform error analysis.
 
 
-Introduction
-============
-
-
-In the preceding lab, we saw how to solve data problems using
-unsupervised learning algorithms and applied the concepts that we
-learned about to a real-life dataset. We also learned how to compare the
-performance of various algorithms and studied two different metrics for
-performance evaluation.
-
-In this lab, we will explore the main steps for working on a
-supervised machine learning problem. First, this lab explains the
-different sets in which data needs to be split for training, validating,
-and testing your model. Next, the most common evaluation metrics will be
-explained. It is important to highlight that, among all the metrics
-available, only one should be selected as the evaluation metric of the
-study, and its selection should be made by considering the purpose of
-the study. Finally, we will learn how to perform error analysis, with
-the purpose of understanding what measures to take to improve the
-results of a model.
-
-The previous concepts apply to both classification and regression tasks,
-where the former refers to problems where the output corresponds to a
-finite number of labels, while the latter deals with a continuous output
-number. For instance, a model that\'s created to determine whether a
-person will attend a meeting falls within the classification tasks
-group. On the other hand, a model that predicts the price of a product
-is solving a regression task.
-
-
-Supervised Learning Tasks
-=========================
-
-
-Differing from unsupervised learning algorithms, supervised learning
-algorithms are characterized by their ability to find relationships
-between a set of features and a target value (be it discrete or
-continuous). Supervised learning can solve two types of tasks:
-
--   **Classification**: The objective of these tasks is to approximate a
-    function that maps a set of features to a discrete set of outcomes.
-    These outcomes are commonly known as class labels or categories.
-    Each observation in the dataset should have a class label associated
-    with it to be able to train a model that is capable of predicting
-    such an outcome for future data.
-
-    An example of a classification task is one that uses demographical
-    data to determine someone\'s marital status.
-
--   **Regression**: Although in regression tasks a function is also
-    created to map a relationship between some inputs and some targets,
-    in regression tasks, the outcome is continuous. This means that the
-    outcome is a real value that can be an integer or a float.
-
-    An example of a regression task is using the different
-    characteristics of a product to predict its price.
-
-Although many algorithms can be adapted to solve both of these tasks, it
-is important to highlight that there are some algorithms that don\'t,
-which is why it is important to know the task that we want to perform in
-order to choose the algorithm accordingly.
-
-Next, we will explore several topics that are crucial for performing any
-supervised learning task.
-
-
-Model Validation and Testing
-============================
-
-
-With all the information now available online, it is easy for almost
-anybody to start working on a machine learning project. However,
-choosing the right algorithm for your data is a challenge when there are
-many options available. Due to this, the decision to use one algorithm
-over another is achieved through trial and error, where different
-alternatives are tested.
-
-Moreover, the decision process to arrive at a good model covers not only
-the selection of the algorithm but also the tuning of its
-hyperparameters. To do this, a conventional approach is to divide the
-data into three parts (training, validation, and testing sets), which
-will be explained further in the next section.
-
-
-
-Data Partitioning
------------------
-
-**Data partitioning** is a process involving dividing a dataset into
-three subsets so that each set can be used for a different purpose. This
-way, the development of a model is not affected by the introduction of
-bias. The following is an explanation of each subset:
-
--   **Training set**: As the name suggests, this is the portion of the
-    dataset that\'s used for training the model. It consists of the
-    input data (the observations) paired with an outcome (the label
-    class). This set can be used to train as many models as desired,
-    using different algorithms. However, performance evaluation is not
-    done on this set because, since this set was used to train the
-    model, the measure would be biased.
-
--   **Validation set**: Also known as the dev set, this set is used to
-    perform an unbiased evaluation of each model while fine-tuning the
-    hyperparameters. Performance evaluation is frequently done on this
-    set of data to test different configurations of the hyperparameters.
-
-    Although the model does not learn from this data (it learns from the
-    training set data), it is indirectly affected by the data in this
-    set due to its participation in the process of deciding the changes
-    to the hyperparameters.
-
-    After running different configurations of hyperparameters based on
-    the performance of the model on the validation set, a winning model
-    is selected for each algorithm.
-
--   **Testing set**: This is used to perform the final evaluation of the
-    model\'s performance (after training and validation) on unseen data.
-    This helps measure the performance of the model with real-life data
-    for future predictions.
-
-    The testing set is also used to compare competing models.
-    Considering that the training set was used to train different models
-    and the validation set was used to fine-tune the hyperparameters of
-    each model to select a winning configuration, the purpose of the
-    testing set is to perform an unbiased comparison of the
-    final models.
 
 The following diagram shows the process of selecting the ideal model and
-using the sets mentioned previously:
+using the sets mentioned:
 
 
 ![Figure 3.1: Dataset partition purposes ](./images/B15781_03_01.jpg)
 
 
-Figure 3.1: Dataset partition purposes
-
-The sections `A`--`D` shown in the preceding diagram
-are described as follows:
-
--   Section `A` refers to the process of training the model
-    for the desired algorithms using the data contained in the training
-    set.
--   Section `B` represents the fine-tuning process of the
-    hyperparameters of each model. The selection of the best
-    configuration of hyperparameters is based on the performance of the
-    model on the validation set.
--   Section `C` shows the process of selecting the final model
-    by comparing the final configuration of each algorithm based on its
-    performance on the testing set.
--   Finally, section `D` represents the selected model that
-    will be applied to real-life data for prediction.
-
-Initially, machine learning problems were solved by only partitioning
-data into two sets: a training and a testing set. This approach
-consisted of using the training set to train the model, which is the
-same as the approach with three sets. However, the testing set was used
-for fine-tuning the hyperparameters as well as for determining the
-ultimate performance of the algorithm.
-
-Although this approach can also work, models that are created using this
-approach do not always perform equally well on unseen real-life data.
-This is mainly because, as mentioned previously, the use of the sets to
-fine-tune the hyperparameters indirectly introduces bias into the model.
-
-Considering this, there is one way to achieve a less biased model while
-dividing the dataset into two sets, which is called a **cross-validation
-split**. We will explore this in the *Cross-Validation* section of this
-lab.
-
-
-
-Split Ratio
------------
-
-Now that the purposes of the various sets are clear, it is important to
-clarify the split ratio in which data needs to be divided. Although
-there is no exact science for calculating the split ratio, there are a
-couple of things to consider when doing so:
-
--   **Size of the dataset**: Previously, when data was not easily
-    available, datasets contained between 100 and 100,000 instances, and
-    the conventionally accepted split ratio was 60/20/20% for the
-    training, validation, and testing sets, respectively.
-
-    With software and hardware improving every day, researchers can put
-    together datasets that contain over a million instances. This
-    capacity to gather huge amounts of data allows the split ratio to be
-    98/1/1%, respectively. This is mainly because the larger the
-    dataset, the more data can be used for training a model, without
-    compromising the amount of data left for the validation and testing
-    sets.
-
--   **The algorithm**: It is important to consider that some algorithms
-    may require higher amounts of data to train a model, as is the case
-    with neural networks. In this case, as with the preceding
-    approaches, you should always opt for a larger training set.
-
-    On the other hand, some algorithms do not require the validation and
-    testing sets to be split equally. For instance, a model with fewer
-    hyperparameters can be easily tuned, which allows the validation set
-    to be smaller than the testing set. However, if a model has many
-    hyperparameters, you will need to have a larger validation set.
-
-Nevertheless, even though the preceding measures serve as a guide for
-splitting the dataset, it is always important to consider the
-distribution of your dataset and the purpose of the study. For instance,
-a model that is going to be used to predict an outcome on data with a
-different distribution than the one used to train the model, the
-real-life data, even if limited, must at least be a part of the testing
-set to make sure that the model will work for the desired purpose.
 
 The following diagram displays the proportional partition of the dataset
 into three subsets. It is important to highlight that the training set
@@ -239,8 +37,6 @@ sets must come from the same distribution:
 
 ![Figure 3.2: Visualization of the split ratio](./images/B15781_03_02.jpg)
 
-
-Figure 3.2: Visualization of the split ratio
 
 
 
@@ -747,14 +543,6 @@ negatives*:
 ![Figure 3.8: An equation showing the calculation for recall](./images/B15781_03_08.jpg)
 
 
-Figure 3.8: An equation showing the calculation for recall
-
-Again, this measure should be applied to two class labels. The value of
-recall for the example in *Figure 3.4* is 92.6%, which, when compared to
-the other two metrics, represents the highest performance of the model.
-The decision to choose one metric or the other will depend on the
-purpose of the study, which will be explained in more detail later.
-
 
 
 Exercise 3.03: Calculating Different Evaluation Metrics on a Classification Task
@@ -877,93 +665,6 @@ these steps to complete this exercise:
     ```
 
 
-Choosing an Evaluation Metric
------------------------------
-
-There are several metrics that can be used to measure the performance of
-a model on classification tasks, and selecting the right one is key to
-building a model that performs exceptionally well for the purpose of the
-study.
-
-Previously, the importance of understanding the purpose of the study was
-mentioned as a useful insight to determine the pre-processing techniques
-that need to be performed on the dataset. Moreover, the purpose of the
-study is also useful to determine the ideal metric for measuring the
-performance of the model.
-
-Why is the purpose of the study important for selecting the evaluation
-metric? Because by understanding the main goal of the study, it is
-possible to decide whether it is important to focus our attention on the
-overall performance of the model or only on one of the class labels.
-
-For instance, a model that has been created to recognize when birds are
-present in a picture does not need to perform well in recognizing which
-other animals are present in the picture as long as it does not classify
-them as birds. This means that the model needs to focus on improving the
-performance of correctly classifying birds only.
-
-On the other hand, for a model that has been created to recognize
-handwritten characters, where no one character is more important than
-another, the ideal metric would be the one that measures the overall
-accuracy of the model.
-
-What would happen if more than one metric was selected? It would become
-difficult to arrive at the best performance of the model, considering
-that measuring two metrics simultaneously can result in needing
-different approaches to improve results.
-
-
-
-Evaluation Metrics for Regression Tasks
----------------------------------------
-
-Considering that regression tasks are those where the final output is
-continuous, without a fixed number of output labels, the comparison
-between the ground truth and the prediction is based on the proximity of
-the values rather than on them having exactly the same values. For
-instance, when predicting house prices, a model that predicts a value of
-USD 299,846 for a house valued at USD 300,000 can be considered to be a
-good model.
-
-The two metrics most commonly used for evaluating the accuracy of
-continuous variables are the **Mean Absolute Error** (**MAE**) and the
-**Root Mean Squared Error** (**RMSE**), which are explained here:
-
--   **Mean Absolute Error**: This metric measures the average absolute
-    difference between a prediction and the ground truth, without taking
-    into account the direction of the error. The formula to calculate
-    the MAE is as follows:
-
-
-![Figure 3.9: An equation showing the calculation of MAE](./images/B15781_03_09.jpg)
-
-
-Figure 3.9: An equation showing the calculation of MAE
-
-Here, *m* refers to the total number of instances, *y* is the ground
-truth, and *ŷ* is the predicted value.
-
--   **Root Mean Squared Error**: This is a quadratic metric that also
-    measures the average magnitude of error between the ground truth and
-    the prediction. As its name suggests, the RMSE is the square root of
-    the average of the squared differences, as shown in the following
-    formula:
-
-    ![Figure 3.10: An equation showing the calculation of RMSE](./images/B15781_03_10.jpg)
-
-Both these metrics express the average error, in a range from 0 to
-infinity, where the lower the value, the better the performance of the
-model. The main difference between these two metrics is that the MAE
-assigns the same weight of importance to all errors, while the RMSE
-squares the error, assigning higher weights to larger errors.
-
-Considering this, the RMSE metric is especially useful in cases where
-larger errors should be penalized, meaning that outliers are taken into
-account in the measurement of performance. For instance, the RMSE metric
-can be used when a value that is off by 4 is more than twice as bad as
-being off by 2. The MAE, on the other hand, is used when a value that is
-off by 4 is just twice as bad as a value off by 2.
-
 
 
 Exercise 3.04: Calculating Evaluation Metrics on a Regression Task
@@ -1038,15 +739,6 @@ complete this exercise:
     RMSE: 6.4594
     ```
 
-    Note
-
-    The scikit-learn library allows you to directly calculate the MSE.
-    To calculate the RMSE, the square root of the value obtained from
-    the `mean_squared_error()` function is calculated. By
-    using the square root, we ensure that the values from MAE and RMSE
-    are comparable.
-
-
 
 Activity 3.02: Evaluating the Performance of the Model Trained on a Handwritten Dataset
 ---------------------------------------------------------------------------------------
@@ -1117,25 +809,6 @@ complete this activity:
 Bias, Variance, and Data Mismatch
 ---------------------------------
 
-To understand the different conditions that may affect a machine
-learning model, it is important to understand what the **Bayes error**
-is. The Bayes error, also known as the **irreducible error**, is the
-lowest possible error rate that can be achieved.
-
-Before the improvements that were made in technology and artificial
-intelligence, the Bayes error was considered to be the lowest possible
-error achievable by humans (**human error**). For instance, for a
-process that most humans achieve with an error rate of 0.1, but top
-experts achieve with an error rate of 0.05, the Bayes error would be
-0.05.
-
-However, the Bayes error has now been redefined as being the lowest
-possible error that machines can achieve, which is unknown considering
-that, as humans, we can only understand as far as human error goes. Due
-to this, when using the Bayes error to analyze errors, it is not
-possible to know the lowest limit once the model is below the human
-error.
-
 The following diagram is useful for analyzing the error rates among the
 different sets of data and determining the condition that is affecting
 the model in a greater proportion. The purpose of this diagram is to
@@ -1149,116 +822,8 @@ set from 100%:
 ![Figure 3.11: Error analysis methodology ](./images/B15781_03_11.jpg)
 
 
-Figure 3.11: Error analysis methodology
-
-Considering the preceding diagram, the process to perform error analysis
-is as follows:
-
-1.  The performance evaluation is calculated on all sets of data. This
-    measure is used to calculate the error for each set.
-
-2.  Starting from the bottom to the top, the difference is calculated as
-    follows:
-
-    The dev set error (12%) is subtracted from the testing set error
-    (12%). The resulting value (0%) is saved.
-
-    The train-dev error (9%) is subtracted from the dev set error (12%).
-    The resulting value (3%) is saved.
-
-    The training set error (8%) is subtracted from the train-dev error
-    (9%). The resulting value (1%) is saved.
-
-    The Bayes error (2%) is subtracted from the training set error (8%).
-    The resulting value (6%) is saved.
-
-3.  The bigger difference determines the condition that is most
-    seriously affecting the model. In this case, the bigger difference
-    occurs between the Bayes error and the training set error, which, as
-    shown in the preceding diagram, determines that the model is
-    suffering from *high bias*.
-
-    Note
-
-    The train/dev set is a combination of data in the training and the
-    validation (dev) sets. It is usually of the same shape as the dev
-    set and contains the same amount of data from both sets.
-
-An explanation of each of the conditions is as follows, along with some
-techniques to avoid/fix them:
-
--   **High Bias**: Also known as underfitting, this occurs when the
-    model is not learning from the training set, which translates into
-    the model performing poorly for all three sets (training,
-    validation, and testing sets), as well as for unseen data.
-
-    Underfitting is the easiest condition to detect and it usually
-    requires changing to a different algorithm that may be a better fit
-    for the data available. With regard to neural networks, it can
-    typically be fixed by constructing a bigger network or by training
-    for longer periods of time.
-
--   **High Variance**: Also known as overfitting, this condition refers
-    to the model\'s inability to perform well on data that\'s different
-    than that of the training set. This basically means that the model
-    has overfitted the training data by learning the details and
-    outliers of the data, without making any generalizations. A model
-    suffering from overfitting will not perform well on the dev or test
-    sets, or on unseen data.
-
-    Overfitting can be fixed by tuning the different hyperparameters of
-    the algorithm, often with the objective of simplifying the
-    algorithm\'s approximation of the data. For instance, for decision
-    trees, this can be addressed by pruning the tree to delete some of
-    the details that were learned from the training data. In neural
-    networks, on the other hand, this can be addressed by adding
-    regularization techniques that seek to reduce some of the neuron\'s
-    influence on the overall result.
-
-    Additionally, adding more data to the training set can also help the
-    model avoid high variance, that is, increasing the dataset that\'s
-    used for training the model.
-
--   **Data mismatch**: This occurs when the training and validation sets
-    do not follow the same distribution. This affects the model as
-    although it generalizes based on the training data. This
-    generalization does not describe the data that was found in the
-    validation set. For instance, a model that\'s created to describe
-    landscape photographs may suffer from a data mismatch if it is
-    trained using high-definition images, while the actual images that
-    will be used once the model has been built are unprofessional.
-
-    Logically, the best way to avoid data mismatch is to make sure that
-    the sets follow the same distribution. For example, you can do this
-    by shuffling together the images from both sources (professional and
-    unprofessional images) and then dividing them into the different
-    sets.
-
-    Nevertheless, in cases where there is not enough data that follows
-    the same distribution of unseen data (data that will be used in the
-    future), it is highly recommended to create the dev and test sets
-    entirely out of that data and add the remaining data to the large
-    training set. From the preceding example, the unprofessional images
-    should be used to create the dev and test sets, adding the remaining
-    ones to the training set, along with the professional images. This
-    helps to train a model with a set that contains enough images to
-    make a generalization, but it uses data with the same distribution
-    as the unseen data to fine-tune the model.
-
-    Finally, if the data from all sets comes from the same distribution,
-    this condition actually refers to a problem of high variance and
-    should be handled as such.
-
--   **Overfitting to the dev set**: Lastly, similar to the variance
-    condition, this occurs when the model is not generalizing but
-    instead is fitting the dev set too well.
-
-    It should be addressed using the same approaches that were explained
-    for high variance.
-
 In the next exercise, we will calculate the error rate of the model on
 the different sets of data, which can be used to perform error analysis.
-
 
 
 Exercise 3.05: Calculating the Error Rate on Different Sets of Data
@@ -1420,20 +985,6 @@ both of these tasks\' goal is to approximate a function that maps a set
 of features to an output, classification tasks have a discrete number of
 outputs, while regression tasks can have infinite continuous values as
 outputs.
-
-When developing machine learning models to solve supervised learning
-problems, one of the main goals is for the model to be capable of
-generalizing so that it will be applicable to future unseen data,
-instead of just learning a set of instances very well but performing
-poorly on new data. Accordingly, a methodology for validation and
-testing was explained in this lab, which involved splitting the data
-into three sets: a training set, a dev set, and a test set. This
-approach eliminates the risk of bias.
-
-After this, we covered how to evaluate the performance of a model for
-both classification and regression problems. Finally, we covered how to
-analyze the performance of a model and perform error analysis on each of
-the sets to detect the condition affecting the model\'s performance.
 
 In the next lab, we will focus on applying different algorithms to a
 real-life dataset, with the underlying objective of applying the steps

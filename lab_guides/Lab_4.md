@@ -203,20 +203,6 @@ degree may influence the earnings of a person to a greater degree than
 the number of children the person has, the algorithm still considers
 both features equally important.
 
-Note
-
-Bayes\' theorem is a mathematical formula that calculates conditional
-probabilities. To learn more about this theorem, visit the following
-URL: <https://plato.stanford.edu/entries/bayes-theorem/>.
-
-Although real-life datasets contain features that are not equally
-important, nor independent, this algorithm is popular among scientists
-as it performs surprisingly well on large datasets. Also, due to the
-simplistic approach of the algorithm, it runs quickly, thus allowing it
-to be applied to problems that require predictions in real-time.
-Moreover, it is frequently used for text classification as it commonly
-outperforms more complex algorithms.
-
 
 
 How Does the Naïve Bayes Algorithm Work?
@@ -234,11 +220,8 @@ algorithm chooses as the prediction.
 Let\'s take, for example, the data presented in the following tables:
 
 
-![Figure 4.2: Table A - Input data and Table B - Occurrence
-count](./images/B15781_04_02.jpg)
+![](./images/B15781_04_02.jpg)
 
-
-Figure 4.2: Table A - Input data and Table B - Occurrence count
 
 Table A represents the data that is fed to the algorithm to build the
 model. Table B refer to the occurrence count that the algorithm uses
@@ -261,8 +244,6 @@ calculated as follows:
 
 ![Figure 4.3: Formula to calculate normalized probability](./images/B15781_04_03.jpg)
 
-
-Figure 4.3: Formula to calculate normalized probability
 
 For the example in *Figure 4.2*, given a new instance with weather equal
 to *sunny* and temperature equal to *cool*, the calculation of
