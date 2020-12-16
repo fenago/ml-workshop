@@ -1,5 +1,7 @@
+<img align="right" src="../logo.png">
 
-4. Supervised Learning Algorithms: Predicting Annual Income
+
+Lab 4. Supervised Learning Algorithms: Predicting Annual Income
 ===========================================================
 
 

@@ -1,10 +1,12 @@
 
-6. Building Your Own Program
+<img align="right" src="../logo.png">
+
+
+Lab 6. Building Your Own Program
 ============================
 
 
-
-Overview
+**Overview**
 
 In this lab, we will present all the steps required to solve a
 problem using machine learning. We will take a look at the key stages
@@ -13,31 +15,6 @@ order to get the same results every time it is run and call a saved
 model to use it for predictions on unseen data. By the end of this
 lab, you will be able to create an interactive version of your
 program so that anyone can use it effectively.
-
-
-Introduction
-============
-
-
-In the previous labs, we covered the main concepts of machine
-learning, beginning with the distinction between the two main learning
-approaches (supervised and unsupervised learning), and then moved on to
-the specifics of some of the most popular algorithms in the data science
-community.
-
-This lab will talk about the importance of building complete machine
-learning programs, rather than just training models. This will involve
-taking the models to the next level, where they can be accessed and used
-easily.
-
-We will do this by learning how to save a trained model. This will allow
-the best performing model to be loaded in order to make predictions over
-unseen data. We will also learn the importance of making a saved model
-available through platforms where users can easily interact with it.
-
-This is especially important when working in a team, either for a
-company or for research purposes, as it allows all members of the team
-to use the model without needing a full understanding of it.
 
 
 Program Definition

@@ -1,7 +1,8 @@
+<img align="right" src="../logo.png">
 
-5. Supervised Learning -- Key Steps
+
+Lab 5. Supervised Learning -- Key Steps
 ===================================
-
 
 
 Overview
@@ -14,35 +15,6 @@ analyze the results of the neural network by performing error analysis.
 By the end of this lab, you will be able to train a network to solve
 a classification problem and fine-tune some of the hyperparameters of
 the network to improve its performance.
-
-
-Introduction
-============
-
-
-In the preceding lab, we explored three machine learning algorithms
-to solve supervised learning tasks, either for classification or
-regression. In this lab, we will explore one of the most popular
-machine learning algorithms nowadays, artificial neural networks, which
-belong to a subgroup of machine learning called deep learning.
-
-**Artificial neural networks** (**ANNs**), also known as **Multilayer
-Perceptrons** (**MLPs**), have become increasingly popular mostly
-because they present a complex algorithm that can approach almost any
-challenging data problem. Even though the theory was developed decades
-back, during the 1940s, such networks are becoming more popular now,
-thanks to all the improvements in technology that allow for the
-gathering of large amounts of data, as well as the developments in
-computer infrastructure that allow the training of complex algorithms
-with large amounts of data.
-
-Due to this, the following lab will focus on introducing ANNs, their
-different types, and the advantages and disadvantages that they present.
-Additionally, an ANN will be used to predict the income of an individual
-based on demographic and financial information from the individual, as
-per the previous lab, in order to present the differences in the
-performance of ANNs in comparison to the other supervised learning
-algorithms.
 
 
 Artificial Neural Networks

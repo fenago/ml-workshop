@@ -1,10 +1,11 @@
+<img align="right" src="../logo.png">
 
-2. Unsupervised Learning -- Real-Life Applications
+
+Lab 2. Unsupervised Learning -- Real-Life Applications
 ==================================================
 
 
-
-Overview
+**Overview**
 
 This lab explains the concept of clustering in machine learning. It
 explains three of the most common clustering algorithms, with a hands-on
@@ -13,147 +14,6 @@ lab, you should have a firm understanding of how to create clusters
 out of a dataset using the k-means, mean-shift, and DBSCAN algorithms,
 as well as the ability to measure the accuracy of those clusters.
 
-
-
-Introduction
-============
-
-
-In the previous lab, we learned how to represent data in a tabular
-format, created features and target matrices, pre-processed data, and
-learned how to choose the algorithm that best suits the problem at hand.
-We also learned how the scikit-learn API works and why it is easy to
-use, as well as the difference between supervised and unsupervised
-learning.
-
-This lab focuses on the most important task in the field of
-unsupervised learning: clustering. Consider a situation in which you are
-a store owner wanting to make a targeted social media campaign to
-promote selected products to certain customers. Using clustering
-algorithms, you would be able to create subgroups of your customers,
-allowing you to profile those subgroups and target them accordingly. The
-main objective of this lab is to solve a case study, where you will
-implement three different unsupervised learning solutions. These
-different applications serve to demonstrate the uniformity of the
-scikit-learn API, as well as to explain the steps taken to solve machine
-learning problems. By the end of this lab, you will be able to
-understand the use of unsupervised learning to comprehend data in order
-to make informed decisions.
-
-
-Clustering
-==========
-
-
-**Clustering** is a type of unsupervised learning technique where the
-objective is to arrive at conclusions based on the patterns found within
-unlabeled input data. This technique is mainly used to segregate large
-data into subgroups in order to make informed decisions.
-
-For instance, from a large list of restaurants in a city, it would be
-useful to segregate the data into subgroups (clusters) based on the type
-of food, quantity of clients, and style of experience, in order to be
-able to offer each cluster a service that\'s been configured to its
-specific needs.
-
-Clustering algorithms divide the data points into *n* number of clusters
-so that the data points in the same cluster have similar features,
-whereas they differ significantly from the data points in other
-clusters.
-
-
-
-Clustering Types
-----------------
-
-Clustering algorithms can classify data points using a methodology that
-is either **hard** or **soft**. The former designates data points
-completely to a cluster, whereas the latter method calculates the
-probability of each data point belonging to each cluster. For example,
-for a dataset containing customer\'s past orders that are divided into
-eight subgroups (clusters), hard clustering occurs when each customer is
-placed inside one of the eight clusters. On the other hand, soft
-clustering assigns each customer a probability of belonging to each of
-the eight clusters.
-
-Considering that clusters are created based on the similarity between
-data points, clustering algorithms can be further divided into several
-groups, depending on the set of rules used to measure similarity. Four
-of the most commonly known sets of rules are explained as follows:
-
--   **Connectivity-based models**: This model\'s approach to similarity
-    is based on proximity in a data space. The creation of clusters can
-    be done by assigning all data points to a single cluster and then
-    partitioning the data into smaller clusters as the distance between
-    data points increases. Likewise, the algorithm can also start by
-    assigning each data point an individual cluster, and then
-    aggregating data points that are close by. An example of a
-    connectivity-based model is hierarchical clustering.
--   **Density-based models**: As the name suggests, these models define
-    clusters by their density in the data space. This means that areas
-    with a high density of data points will become clusters, which are
-    typically separated from one another by low-density areas. An
-    example of this is the DBSCAN algorithm, which will be covered later
-    in this lab.
--   **Distribution-based models**: Models that fall into this category
-    are based on the probability that all the data points from a cluster
-    follow the same distribution, such as a Gaussian distribution. An
-    example of such a model is the Gaussian Mixture algorithm, which
-    assumes that all data points come from a mixture of a finite number
-    of Gaussian distributions.
--   **Centroid-based models**: These models are based on algorithms that
-    define a centroid for each cluster, which is updated constantly by
-    an iterative process. The data points are assigned to the cluster
-    where their proximity to the centroid is minimized. An example of
-    such a model is the k-means algorithm, which will be discussed later
-    in this lab.
-
-In conclusion, data points are assigned to clusters based on their
-similarity to each other and their difference from data points in other
-clusters. This classification into clusters can be either absolute or
-variably distributed by determining the probability of each data point
-belonging to each cluster.
-
-Moreover, there is no fixed set of rules to determine similarity between
-data points, which is why different clustering algorithms use different
-rules. Some of the most commonly known sets of rules are
-connectivity-based, density-based, distribution-based, and
-centroid-based.
-
-
-
-Applications of Clustering
---------------------------
-
-As with all machine learning algorithms, clustering has many
-applications in different fields, some of which are as follows:
-
--   **Search engine results**: Clustering can be used to generate search
-    engine results containing keywords that are approximate to the
-    keywords searched by the user and ordered as per the search result
-    with greater similarity. Consider Google as an example; it uses
-    clustering not only for retrieving results but also for suggesting
-    new possible searches.
--   **Recommendation programs**: It can also be used in recommendation
-    programs that cluster together, for instance, people that fall into
-    a similar profile, and then make recommendations based on the
-    products that each member of the cluster has bought. Consider
-    Amazon, for example, which recommends more items based on your
-    purchase history and the purchases of similar users.
--   **Image recognition**: This is where clusters are used to group
-    images that are considered to be similar. For instance, Facebook
-    uses clustering to help suggest who is present in a picture.
--   **Market segmentation**: Clustering can also be used for market
-    segmentation to divide a list of prospects or clients into subgroups
-    in order to provide a customized experience or product. For example,
-    Adobe uses clustering analysis to segment customers in order to
-    target them differently by recognizing those who are more willing to
-    spend money.
-
-The preceding examples demonstrate that clustering algorithms can be
-used to solve different data problems in different industries, with the
-primary purpose of understanding large amounts of historical data that,
-in some cases, can be used to classify new instances.
 
 
 Exploring a Dataset -- Wholesale Customers Dataset

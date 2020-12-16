@@ -1,10 +1,11 @@
+<img align="right" src="../logo.png">
 
-3. Supervised Learning -- Key Steps
+
+Lab 3. Supervised Learning -- Key Steps
 ===================================
 
 
-
-Overview
+**Overview**
 
 In this lab, you will learn about key concepts for solving a
 supervised learning data problem. Starting from splitting the dataset to
