@@ -39,7 +39,7 @@ information, and C represents the **axon** that oversees the process of
 passing the processed information to the next neuron:
 
 
-![Figure 5.1: Visual representation of a human neuron](./images/B15781_05_01.jpg)
+![](./images/B15781_05_01.jpg)
 
 
 
@@ -53,7 +53,7 @@ a linear function, coupled with an activation function that aims to
 break the linearity, as follows:
 
 
-![Figure 5.3: The linear and activation functions used by an ANN](./images/B15781_05_03.jpg)
+![](./images/B15781_05_03.jpg)
 
 
 The preceding two formulas are calculated for each neuron in each layer,
@@ -61,7 +61,7 @@ where the value of *X* for the hidden layers (other than the input
 layer) is replaced by the output of the previous layer, as follows:
 
 
-![Figure 5.4: The values calculated for the second layer of the ANN](./images/B15781_05_04.jpg)
+![](./images/B15781_05_04.jpg)
 
 
 
@@ -84,7 +84,7 @@ cost = -(y * log(yhat) + (1-y) *(1-yhat))
 For a multiclass classification task, the formula is as follows:
 
 
-![Figure 5.5: The cost function for a multiclass classification task](./images/B15781_05_05.jpg)
+![](./images/B15781_05_05.jpg)
 
 
 
@@ -98,14 +98,14 @@ biases should be updated, so that the error can continue to be minimized
 until it reaches a minimum point:
 
 
-![Figure 5.6: Example of the iterative process of training an ANN](./images/B15781_05_06.jpg)
+![](./images/B15781_05_06.jpg)
 
 It is important to highlight that backpropagation does not always find
 the global minima, since it stops updating once it has reached the
 lowest point in a slope, regardless of any other regions. For instance,
 consider the following diagram:
 
-![Figure 5.7: Examples of minimum points ](./images/B15781_05_07.jpg)
+![](./images/B15781_05_07.jpg)
 
 
 
@@ -198,7 +198,7 @@ your system.
     method:
 
 
-    ![Figure 5.8: Warning message displayed after running the fit method](./images/B15781_05_08.jpg)
+    ![](./images/B15781_05_08.jpg)
 
     Figure 5.8: Warning message displayed after running the fit method
 
@@ -309,7 +309,7 @@ condition that is affecting the model. To do so, a Bayes error equal to
 lab were able to achieve an accuracy level of over 97%:
 
 
-![Figure 5.9: Accuracy score and error rate of the network](./images/B15781_05_09.jpg)
+![](./images/B15781_05_09.jpg)
 
 
 
@@ -326,7 +326,7 @@ network (number of layers and units) should be changed using a
 trial-and-error approach, the following experiments will be performed:
 
 
-![Figure 5.10: Suggested experiments to tune the hyperparameters](./images/B15781_05_10.jpg)
+![](./images/B15781_05_10.jpg)
 
 
 Similar to adding the `random_state` argument to the
@@ -366,7 +366,7 @@ The accuracy scores from running the preceding experiments can be seen
 in the following table:
 
 
-![Figure 5.11: Accuracy scores for all experiments](./images/B15781_05_11.jpg)
+![](./images/B15781_05_11.jpg)
 
 
 Nonetheless, in order to test the width of the hidden layers, the
@@ -375,14 +375,14 @@ the number of iterations and the number of hidden layers of Experiment
 2, but varying the number of units in each layer:
 
 
-![Figure 5.12: Suggested experiments to vary the width of the network](./images/B15781_05_12.jpg)
+![](./images/B15781_05_12.jpg)
 
 
 The accuracy score of the two experiments is shown, followed by an
 explanation of the logic behind them:
 
 
-![Figure 5.13: Accuracy scores for the second round of experiments](./images/B15781_05_13.jpg)
+![](./images/B15781_05_13.jpg)
 
 
 It can be seen that the accuracy for both experiments decreases for all
@@ -444,11 +444,9 @@ Perform the following steps to compare the different models:
     in the details in the following table:
 
 
-    ![Figure 5.14: Accuracy scores of all four models for the Census
-    Income Dataset ](./images/B15781_05_14.jpg)
+    ![](./images/B15781_05_14.jpg)
 
-    Figure 5.14: Accuracy scores of all four models for the Census
-    Income Dataset
+    Figure 5.14: Accuracy scores of all four models for the Census Income Dataset
 
 3.  On the basis of the accuracy scores, identify the model with the
     best performance.

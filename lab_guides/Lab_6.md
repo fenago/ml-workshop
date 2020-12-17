@@ -87,7 +87,7 @@ repository, follow these steps to download the dataset:
     The DataFrame will look as follows:
 
 
-    ![Figure 6.2: Screenshot of the data in the .csv file before splitting the data into columns ](./images/B15781_06_02.jpg)
+    ![](./images/B15781_06_02.jpg)
 
     This can be fixed by adding the `delimiter` parameter to
     the `read_csv` function and defining the semicolon as the
@@ -101,7 +101,7 @@ repository, follow these steps to download the dataset:
     After this step, the data should look as follows:
 
 
-    ![Figure 6.3: Screenshot of the data in the .csv file after splitting it into columns ](./images/B15781_06_03.jpg)
+    ![](./images/B15781_06_03.jpg)
 
 
 
@@ -121,11 +121,9 @@ repository, follow these steps to download the dataset:
     the preceding code snippet is as follows:
 
 
-    ![Figure 6.4: Screenshot of the data in the .csv file after
-    replacing unknown values ](./images/B15781_06_04.jpg)
+    ![](./images/B15781_06_04.jpg)
 
-    Figure 6.4: Screenshot of the data in the .csv file after replacing
-    unknown values
+    Figure 6.4: Screenshot of the data in the .csv file after replacing  unknown values
 
     This will allow us to easily handle missing values during the
     pre-processing of the dataset.
@@ -147,7 +145,7 @@ will provide an idea of some of the steps required to pre-process the
 data:
 
 
-![Figure 6.5: A table describing the features of the dataset](./images/B15781_06_05.jpg)
+![](./images/B15781_06_05.jpg)
 
 
 Note
@@ -227,7 +225,7 @@ analysis, revisit *Lab 3*, *Supervised Learning -- Key Steps*, and
 Expected output:
 
 
-![Figure 6.6: Expected output ](./images/B15781_06_06.jpg)
+![](./images/B15781_06_06.jpg)
 
 
 Saving and Loading a Trained Model
