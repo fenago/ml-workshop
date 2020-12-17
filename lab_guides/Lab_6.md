@@ -123,7 +123,7 @@ repository, follow these steps to download the dataset:
 
     ![](./images/B15781_06_04.jpg)
 
-    Figure 6.4: Screenshot of the data in the .csv file after replacing  unknown values
+    
 
     This will allow us to easily handle missing values during the
     pre-processing of the dataset.

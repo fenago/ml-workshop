@@ -200,7 +200,7 @@ your system.
 
     ![](./images/B15781_05_08.jpg)
 
-    Figure 5.8: Warning message displayed after running the fit method
+    
 
     As you can see, the warning specifies that after running the default
     number of iterations, which is `200`, the model has not
@@ -446,7 +446,7 @@ Perform the following steps to compare the different models:
 
     ![](./images/B15781_05_14.jpg)
 
-    Figure 5.14: Accuracy scores of all four models for the Census Income Dataset
+    
 
 3.  On the basis of the accuracy scores, identify the model with the
     best performance.
