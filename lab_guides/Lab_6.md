@@ -481,20 +481,6 @@ reused, but also introduces efficiency to the implementation of machine
 learning solutions by allowing you to perform classifications using just
 input data.
 
-There are several ways to interact with a model, and the decision
-that\'s made between choosing one or the other depends on the nature of
-the user (the individuals that will be making use of the model on a
-regular basis). Machine learning projects can be accessed in different
-ways, some of which require the use of an API, an online or offline
-program (application), or a website.
-
-Moreover, once the channel is defined based on the preference or
-expertise of the users, it is important to code the connection between
-the final user and the model, which could be either a function or a
-class that deserializes the model and loads it, then performs the
-classification, and ultimately returns an output that is displayed again
-to the user.
-
 The following diagram displays the relationship built between the
 channel and the model, where the icon to the left represents the model,
 the one in the middle is the function or class (the intermediary)

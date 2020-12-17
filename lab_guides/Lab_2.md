@@ -114,18 +114,7 @@ Visualization Tools
 There are different open source visualization libraries available, from
 which seaborn and matplotlib stand out. In the previous lab, seaborn
 was used to load and display data; however, from this section onward,
-matplotlib will be used as our visualization library of choice. This is
-mainly because seaborn is built on top of matplotlib with the sole
-purpose of introducing a couple of plot types and to improve the format
-of the displays. Therefore, once you\'ve learned about matplotlib, you
-will also be able to import seaborn to improve the visual quality of
-your plots.
-
-Note
-
-For more information about the seaborn library, visit the following
-link: <https://seaborn.pydata.org/>.
-
+matplotlib will be used as our visualization library of choice.
 In general terms, matplotlib is an easy-to-use Python library that
 prints 2D quality figures. For simple plotting, the `pyplot`
 model of the library will suffice.

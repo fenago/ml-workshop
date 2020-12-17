@@ -123,26 +123,6 @@ the following table:
 
 
 
-
-Note
-
-\*Publisher\'s Note: Gender and race would have impacted the earning
-potential of an individual at the date this study was conducted.
-However, for the purpose of this lab, we have decided to exclude
-these categories from our exercises and activities.
-
-We recognize that due to biases and discriminatory practices, it is
-impossible to separate issues such as gender, race, and educational and
-vocational opportunities. The removal of certain features from our
-dataset in the pre-processing stage of these exercises is not intended
-to ignore the issues, nor the valuable work undertaken by organizations
-and individuals working in the civil rights sphere.
-
-We strongly recommend that you consider the sociopolitical impacts of
-data and the way it is used, and also consider how past prejudices can
-be perpetuated by using historical data to introduce bias into new
-algorithms.
-
 From the preceding table, it is possible to conclude the following:
 
 -   Five features are not relevant to the study: `fnlwgt`,
@@ -839,72 +819,11 @@ From the preceding snippets, the following results are obtained:
 
 
 
-Note
-
-Review the code to arrive at these results, which can be found in this
-course\'s GitHub repository, under the folder named `Lab04`,
-by opening the file named `Error analysis`.
-
-Initially, the following inferences, in relation to selecting the
-best-fitted model, as well as with regard to the conditions that each
-model suffers from, will be done while considering only the values from
-the accuracy metric, assuming a Bayes error of close to 0 (meaning that
-the model could reach a maximum success rate of close to 1):
-
--   Upon comparing the three accuracy scores of the Naïve Bayes and the
-    SVM models, it is possible to conclude that the models behave almost
-    the same way for all three sets of data. This basically means that
-    the models are generalizing the data from the training set, which
-    allows them to perform well on unseen data. Nevertheless, the
-    overall performance of the models is around 0.8, which is far from
-    the maximum success rate. This means that the models may be
-    suffering from high bias.
--   Moreover, the performance of the decision tree model, in terms of
-    the accuracy of the training set, is closer to the maximum success
-    rate. However, the model is suffering from a case of overfitting,
-    considering that the accuracy level of the model on the validation
-    set is much lower than its performance on the training set.
-    According to this, it would be possible to address the overfitting
-    issue by adding more data to the training set or by fine-tuning the
-    hyperparameters of the model, which would help to bring up the
-    accuracy level of the validation and testing sets. Pruning the tree
-    can help an overfitted model.
-
-Considering this, the researcher now has the required information to
-select a model and work on improving the results to achieve the maximum
-possible performance of the model.
-
-Next, for learning purposes, let\'s compare the results of all the
-metrics for the decision tree model. Although the values for all three
-metrics prove the existence of overfitting, it is possible to observe
-that the degree of overfitting is much larger for the precision and
-recall metrics. Also, it is possible to conclude that the performance of
-the model on the training set measured by the recall metric is much
-lower, which means that the model is not as good at classifying positive
-labels. This means that if the purpose of the case study was to maximize
-the number of positive classifications, regardless of the classification
-of negative labels, the model would also need to improve its performance
-on the training set.
-
-Note
-
-The preceding comparison is done to show that the performance of the
-same model can vary if measured with a different metric. According to
-this, it is crucial to choose the metric of relevance for the case
-study.
-
-Using the knowledge that you have gained from previous labs, feel
-free to keep exploring the results shown in the preceding table.
-
-
 #### Summary
 
-Using the knowledge from previous labs, we started this lab by
-performing an analysis of the Census Income dataset, with the objective
-of understanding the data that\'s available and making decisions about
-the pre-processing process. Three supervised learning classification
-algorithms---the Naïve Bayes algorithm, the Decision Tree algorithm, and
-the SVM algorithm---were explained, and were applied to the previously
+Three supervised learning classification
+algorithms --- the Naïve Bayes algorithm, the Decision Tree algorithm, and
+the SVM algorithm were explained, and were applied to the previously
 pre-processed dataset to create models that generalized to the training
 data. Finally, we compared the performance of the three models on the
 Census Income dataset by calculating the accuracy, precision, and recall

@@ -43,7 +43,7 @@ passing the processed information to the next neuron:
 
 
 
-### Forward Propagation
+#### Forward Propagation
 
 The input layer feeds the initial information to the ANN. The processing
 of the data is done by propagating data bits through the depth (number
@@ -65,30 +65,16 @@ layer) is replaced by the output of the previous layer, as follows:
 
 
 
-### Cost Function
-
-
-For classification tasks, the cost function most commonly used is the
-**cross-entropy cost function**, where the higher the value of the cost
-function, the greater the divergence between the predicted and actual
-values.
-
-For a binary classification task, that is, tasks with only two class
-output labels, the cross-entropy cost function is calculated as follows:
-
-```
-cost = -(y * log(yhat) + (1-y) *(1-yhat))
-```
+#### Cost Function
 
 
 For a multiclass classification task, the formula is as follows:
-
 
 ![](./images/B15781_05_05.jpg)
 
 
 
-### Backpropagation
+#### Backpropagation
 
 
 The following diagram displays an example of the training
@@ -109,7 +95,7 @@ consider the following diagram:
 
 
 
-### Updating the Weights and Biases
+#### Updating the Weights and Biases
 
 Taking the derivatives\' average that was calculated during
 backpropagation, the final step of an iteration is to update the values
@@ -391,35 +377,6 @@ values, it can be concluded that the performance of Experiment 2 is the
 highest in terms of testing sets, which leaves us with a network that
 iterates for 500 steps, with one input and output layer and two hidden
 layers with 100 units each.
-
-
-
-Model Comparison
-----------------
-
-When more than one model has been trained, the final step related to the
-process of creating a model is a comparison between the models in order
-to choose the one that best represents the training data in a
-generalized way, so that it works well over unseen data.
-
-The comparison, as mentioned previously, must be done by using only the
-metric that was selected to measure the performance of the models for
-the data problem. This is important, considering that one model can
-perform very differently for each metric, so the model that maximizes
-the performance with the ideal metric should be selected.
-
-Although the metric is calculated on all three sets of data (training,
-validation, and testing) in order to be able to perform error analysis,
-for most cases, comparison and selection should be done by prioritizing
-the results obtained with the testing set. This is mainly due to the
-purpose of the sets, considering that the training set is used to create
-the model, the validation set is used to fine-tune the hyperparameters,
-and finally, the testing set is used to measure the overall performance
-of the model on unseen data.
-
-Taking this into account, the model with a superior performance on the
-testing set, after having improved all models to their fullest
-potential, will be the one that performs best on unseen data.
 
 
 

@@ -384,42 +384,6 @@ complete this activity:
 4.  Using the same DataFrames, perform a 10-fold cross-validation split.
 
 
-Evaluation Metrics
-==================
-
-
-Model evaluation is indispensable for creating effective models that not
-only perform well on the data that was used to train the model but also
-on unseen data. The task of evaluating the model is especially easy when
-dealing with supervised learning problems, where there is a ground truth
-that can be compared against the prediction of the model.
-
-Determining the accuracy percentage of the model is crucial for its
-application to unseen data that does not have a label class to compare
-to. For example, a model with an accuracy of 98% may allow the user to
-assume that the odds of having an accurate prediction are high, and
-hence the model should be trusted.
-
-The evaluation of performance, as mentioned previously, should be done
-on the validation set (dev set) to fine-tune the model, and on the test
-set to determine the expected performance of the selected model on
-unseen data.
-
-
-
-Evaluation Metrics for Classification Tasks
--------------------------------------------
-
-A classification task refers to a model where the class label is a
-discrete value, as mentioned previously. Considering this, the most
-common measure to evaluate the performance of such tasks is calculating
-the accuracy of the model, which involves comparing the actual
-prediction to the real value. Even though this may be an appropriate
-metric in many cases, there are several others to consider as well
-before choosing one.
-
-Now, we will take a look at the different performance metrics.
-
 
 
 ### Confusion Matrix
@@ -439,47 +403,10 @@ Consider the following table:
 
 ![](./images/B15781_03_04.jpg)
 
-
-
-The following can be observed from the preceding table:
-
--   By summing up the values in the first row, it is possible to know
-    that there are 600 observations of pregnant women. However, from
-    those 600 observations, the model predicted 556 as pregnant, and 44
-    as non-pregnant. Hence, the model\'s ability to predict that a woman
-    is pregnant has a correctness level of 92.6%.
--   Regarding the second row, there are also 600 observations of
-    non-pregnant women. Out of those 600, the model predicted that 123
-    of them were pregnant, and 477 were non-pregnant. The model
-    successfully predicted non-pregnant women 79.5% of the time.
-
-Based on these statements, it is possible to conclude that the model
-performs at its worst when classifying observations that are not
-pregnant.
-
-Considering that the rows in a confusion matrix refer to the occurrence
-or non-occurrence of an event, and the columns refer to the model\'s
-predictions, the values in the confusion matrix can be explained as
-follows:
-
--   **True positives** (**TP**): Refers to the instances that the model
-    correctly classified the event as positive---for example, the
-    instances correctly classified as pregnant.
--   **False positives** (**FP**): Refers to the instances that the model
-    incorrectly classified the event as positive---for example, the
-    non-pregnant instances that were incorrectly classified as pregnant.
--   **True negatives** (**TN**): Represents the instances that the model
-    correctly classified the event as negative---for example, the
-    instances correctly classified as non-pregnant.
--   **False negatives** (**FN**): Refers to the instances that the model
-    incorrectly classified the event as negative---for example, the
-    pregnant instances that were incorrectly predicted as non-pregnant.
-
 The values in the confusion matrix can be demonstrated as follows:
 
 
 ![](./images/B15781_03_05.jpg)
-
 
 
 
