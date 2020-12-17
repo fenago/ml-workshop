@@ -932,7 +932,7 @@ dataset for this purpose. Follow these steps to complete this exercise:
     From the preceding values, the following table containing the error
     rates can be created:
 
-    ![](./images/B15781_03_12.jpg)
+![](./images/B15781_03_12.jpg)
 
 
 

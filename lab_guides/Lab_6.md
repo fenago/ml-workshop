@@ -87,7 +87,7 @@ repository, follow these steps to download the dataset:
     The DataFrame will look as follows:
 
 
-    ![](./images/B15781_06_02.jpg)
+![](./images/B15781_06_02.jpg)
 
     This can be fixed by adding the `delimiter` parameter to
     the `read_csv` function and defining the semicolon as the
@@ -101,7 +101,7 @@ repository, follow these steps to download the dataset:
     After this step, the data should look as follows:
 
 
-    ![](./images/B15781_06_03.jpg)
+![](./images/B15781_06_03.jpg)
 
 
 
@@ -121,7 +121,7 @@ repository, follow these steps to download the dataset:
     the preceding code snippet is as follows:
 
 
-    ![](./images/B15781_06_04.jpg)
+![](./images/B15781_06_04.jpg)
 
     
 

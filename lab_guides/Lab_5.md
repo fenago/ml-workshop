@@ -198,7 +198,7 @@ your system.
     method:
 
 
-    ![](./images/B15781_05_08.jpg)
+![](./images/B15781_05_08.jpg)
 
     
 
@@ -444,7 +444,7 @@ Perform the following steps to compare the different models:
     in the details in the following table:
 
 
-    ![](./images/B15781_05_14.jpg)
+![](./images/B15781_05_14.jpg)
 
     
 
