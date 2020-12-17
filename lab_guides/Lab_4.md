@@ -19,6 +19,17 @@ with the best performance.
 
 
 
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+All examples are present in `~/work/ml-workshop/Lab04` folder. 
+
+You can access lab at `http://<host-ip>/lab/workspaces/lab4_Algorithms`
+
+
 Exploring the Dataset
 =====================
 

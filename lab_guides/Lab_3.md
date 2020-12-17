@@ -16,13 +16,23 @@ this lab, you will have a firm understanding of how to split a
 dataset, measure a model\'s performance, and perform error analysis.
 
 
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+All examples are present in `~/work/ml-workshop/Lab03` folder. 
+
+You can access lab at `http://<host-ip>/lab/workspaces/lab3_Supervised`
+
+
 
 The following diagram shows the process of selecting the ideal model and
 using the sets mentioned:
 
 
 ![Figure 3.1: Dataset partition purposes ](./images/B15781_03_01.jpg)
-
 
 
 The following diagram displays the proportional partition of the dataset
@@ -33,7 +43,6 @@ the training and validation sets have an effect on the model, while the
 testing set is mainly used to validate the actual performance of the
 model with unseen data. Considering this, the training and validation
 sets must come from the same distribution:
-
 
 ![Figure 3.2: Visualization of the split ratio](./images/B15781_03_02.jpg)
 

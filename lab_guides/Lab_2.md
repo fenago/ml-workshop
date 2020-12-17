@@ -15,6 +15,16 @@ out of a dataset using the k-means, mean-shift, and DBSCAN algorithms,
 as well as the ability to measure the accuracy of those clusters.
 
 
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+All examples are present in `~/work/ml-workshop/Lab02` folder. 
+
+You can access lab at `http://<host-ip>/lab/workspaces/lab2_Unsupervised`
+
 
 Exploring a Dataset -- Wholesale Customers Dataset
 ==================================================

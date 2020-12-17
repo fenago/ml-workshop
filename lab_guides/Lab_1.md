@@ -18,6 +18,16 @@ syntax so that you can solve simple data problems, which will be the
 starting point for developing machine learning solutions.
 
 
+#### Pre-reqs:
+- Google Chrome (Recommended)
+
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
+
+All examples are present in `~/work/ml-workshop/Lab01` folder. 
+
+You can access lab at `http://<host-ip>/lab/workspaces/lab1_ScikitLearn`
+
 
 
 Exercise 1.01: Loading a Sample Dataset and Creating the Features and Target Matrices

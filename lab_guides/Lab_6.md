@@ -17,153 +17,16 @@ lab, you will be able to create an interactive version of your
 program so that anyone can use it effectively.
 
 
-Program Definition
-==================
 
+#### Pre-reqs:
+- Google Chrome (Recommended)
 
-The following section will cover the key stages required to construct a
-comprehensive machine learning program that allows easy access to the
-trained model so that we can perform predictions for all future data.
-These stages will be applied to the construction of a program that
-allows a bank to determine the promotional strategy for a financial
-product in its marketing campaign.
+#### Lab Environment
+Notebooks are ready to run. All packages have been installed. There is no requirement for any setup.
 
+All examples are present in `~/work/ml-workshop/Lab06` folder. 
 
-
-Building a Program -- Key Stages
---------------------------------
-
-At this point, you should be able to pre-process a dataset, build
-different models using training data, and compare those models in order
-to choose the one that best fits the data at hand. These are some of the
-processes that are handled during the first two stages of building a
-program, which ultimately allows the creation of the model. Nonetheless,
-a program should also consider the process of saving the final model, as
-well as the ability to perform quick predictions without the need for
-coding.
-
-The processes that we just discussed are divided into three main stages
-and will be explained in the following sections. These stages represent
-the foremost requirements of any machine learning project.
-
-
-
-### Preparation
-
-Preparation consists of all the procedures that we have developed thus
-far, with the objective of outlining the project in alignment with the
-available information and the desired outcome. The following is a brief
-description of the three processes in this stage (these have been
-discussed in detail in previous labs):
-
-1.  **Data Exploration**: Once the objective of the study has been
-    established, data exploration is undertaken in order to understand
-    the data that is available and to obtain valuable insights. These
-    insights will be used later to make decisions regarding
-    pre-processing and dividing the data and selecting models, among
-    other uses. The information that\'s most commonly obtained during
-    data exploration includes the size of the dataset (number of
-    instances and features), the irrelevant features, and whether
-    missing values or evident outliers are present.
-2.  **Data Pre-processing**: As we have already discussed, data
-    pre-processing primarily refers to the process of handling missing
-    values, outliers, and noisy data; converting qualitative features
-    into their numeric forms; and normalizing or standardizing these
-    values. This process can be done manually in any data editor, such
-    as Excel, or by using libraries to code the procedure.
-3.  **Data Splitting**: The final process, data splitting, involves
-    splitting the entire dataset into two or three sets (depending on
-    the approach) that will be used for training, validating, and
-    testing the overall performance of the model. Separating the
-    features and the class label is also handled during this stage.
-
-
-
-### Creation
-
-This stage involves all of the steps that are required to create a model
-that fits the data that is available. This can be done by selecting
-different algorithms, training and tuning them, comparing the
-performance of each, and, finally, selecting the one that generalizes
-best to the data (meaning that it achieves better overall performance).
-The processes in this stage will be discussed briefly, as follows:
-
-1.  **Algorithm Selection**: Irrespective of whether you decide to
-    choose one or multiple algorithms, it is crucial to select an
-    algorithm on the basis of the available data and to take the
-    advantages of each algorithm into consideration. This is important
-    since many data scientists make the mistake of choosing neural
-    networks for any data problem when, in reality, simpler problems can
-    be tackled using simpler models that run more quickly and perform
-    better with smaller datasets.
-
-2.  **Training Process**: This process involves training the model using
-    the training dataset. This means that the algorithm uses the
-    features data (`X`) and the label classes (`Y`)
-    to determine relationship patterns that will help generalize to
-    unseen data and make predictions when the class label is not
-    available.
-
-3.  **Model Evaluation**: This process is handled by measuring the
-    performance of the algorithm through the metric that\'s been
-    selected for the study. As we mentioned previously, it is important
-    to choose the metric that best represents the purpose of the study,
-    considering that the same model can do very well in terms of one
-    metric and poorly in terms of another.
-
-    While evaluating the model on the validation set, hyperparameters
-    are fine-tuned to achieve the best possible performance. Once the
-    hyperparameters have been tuned, the evaluation is performed on the
-    testing set to measure the overall performance of the model on
-    unseen data.
-
-4.  **Model Comparison and Selection**: When multiple models are created
-    based on different algorithms, a model comparison is performed to
-    select the one that outperforms the others. This comparison should
-    be done by using the same metric for all the models.
-
-
-
-### Interaction
-
-The final stage in building a comprehensive machine learning program
-consists of allowing the final user to easily interact with the model.
-This includes the process of saving the model into a file, calling the
-file that holds the saved model, and developing a channel through which
-users can interact with the model:
-
-1.  **Storing the Final Model**: This process is introduced during the
-    development of a machine learning program as it is crucial to enable
-    the unaltered use of the model for future predictions. The process
-    of saving the model is highly important, considering that most
-    algorithms are randomly initialized each time they are run, which
-    makes the results different for each run. The process of saving the
-    model will be explained further later in this lab.
-2.  **Loading the Model**: Once the model has been saved in a file, it
-    can be accessed by loading the file into any code. The model is then
-    stored in a variable that can be used to apply the
-    `predict` method on unseen data. This process will also be
-    explained later in this lab.
-3.  **Channel of Interaction**: Finally, it is crucial to develop an
-    interactive and easy way to perform predictions using the saved
-    model, especially because, on many occasions, models are created by
-    the technology team for other teams to use. This means that an ideal
-    program should allow non-experts to use the model for predicting by
-    simply typing in the input data. This idea will also be expanded
-    upon later in this lab.
-
-The following diagram illustrates the preceding stages:
-
-
-![Figure 6.1: Stages for building a machine learning program](./images/B15781_06_01.jpg)
-
-
-Figure 6.1: Stages for building a machine learning program
-
-The rest of this lab will focus on the final stage of building a
-model (the interaction), considering that all the previous steps were
-discussed in previous labs.
-
+You can access lab at `http://<host-ip>/lab/workspaces/lab6_Program`
 
 
 Understanding the Dataset
@@ -224,11 +87,7 @@ repository, follow these steps to download the dataset:
     The DataFrame will look as follows:
 
 
-    ![Figure 6.2: Screenshot of the data in the .csv file before
-    splitting the data into columns ](./images/B15781_06_02.jpg)
-
-    Figure 6.2: Screenshot of the data in the .csv file before splitting
-    the data into columns
+    ![Figure 6.2: Screenshot of the data in the .csv file before splitting the data into columns ](./images/B15781_06_02.jpg)
 
     This can be fixed by adding the `delimiter` parameter to
     the `read_csv` function and defining the semicolon as the
@@ -242,11 +101,9 @@ repository, follow these steps to download the dataset:
     After this step, the data should look as follows:
 
 
-    ![Figure 6.3: Screenshot of the data in the .csv file after
-    splitting it into columns ](./images/B15781_06_03.jpg)
+    ![Figure 6.3: Screenshot of the data in the .csv file after splitting it into columns ](./images/B15781_06_03.jpg)
 
-    Figure 6.3: Screenshot of the data in the .csv file after splitting
-    it into columns
+
 
     As shown in the preceding screenshot, the file contains unknown
     values that should be handled as missing values.
@@ -283,16 +140,6 @@ repository, follow these steps to download the dataset:
     ```
 
 
-The file should contain a total of 45,211 instances, each with 16
-features and one class label, which can be verified by printing the
-shape of the variable holding the dataset. The class label is binary, of
-the `yes` or `no` type, and indicates whether the
-client subscribes to a term deposit with the bank.
-
-Each instance represents a client of the bank, while the features
-capture demographic information, as well as data regarding the nature of
-the contact with the client during the current (and previous)
-promotional campaign.
 
 The following table displays brief descriptions of all 16 features. This
 will help you determine the relevance of each feature to the study, and
@@ -309,10 +156,6 @@ You can find the preceding descriptions and more in this course\'s GitHub
 repository, in the folder named `Lab06`. The file for the
 preceding example is named `bank-names.txt` and can be found
 in the `.zip` folder called `bank.zip`.
-
-Using the information we obtained while exploring the dataset, it is
-possible to proceed with pre-processing the data and training the model,
-which will be the purpose of the following activity.
 
 
 
@@ -499,19 +342,6 @@ and then saved. Follow these steps to complete this exercise:
     file = open(path, "wb")
     pickle.dump(model, file)
     ```
-
-    In the preceding snippet, the `path` variable contains the
-    path to the file that will hold the serialized model, where the
-    first element locates the current working directory and the second
-    element defines the name of the file to be saved. The
-    `file` variable is used to create a file that will be
-    saved in the desired path and has the file mode set to
-    `wb`, which stands for **write** and **binary** (this is
-    the way the serialized model must be written). Finally, the
-    `dump` method is applied over the `pickle`
-    module. It takes the model that was created previously, serializes
-    it, and then saves it.
-
 
 
 
